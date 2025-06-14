@@ -1,0 +1,11 @@
+[[Vicharak]]
+
+| WHAT                | LINK                                                                                                                                                                                 | DESC                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
+| YOCTO repo          | [https://github.com/vicharak-in/rockchip-linux-manifests](https://github.com/vicharak-in/rockchip-linux-manifests)                                                                   | That's where we have the yocto config      |
+| YOCTO Playlist      | [https://youtube.com/playlist?list=PLwqS94HTEwpQmgL1UsSwNk_2tQdzq3eVJ&si=uRVfSlAQMRoeyKtq](https://youtube.com/playlist?list=PLwqS94HTEwpQmgL1UsSwNk_2tQdzq3eVJ&si=uRVfSlAQMRoeyKtq) | As always, a playlist for you to use these |
+| meta-rockchip       | https://github.com/vicharak-in/meta-rockchip                                                                                                                                         | Main yocto project repository              |
+| vaaman-yocto-config | https://github.com/vicharak-in/yocto_build_conf                                                                                                                                      | yocto config files for vaaman              |
+| yocto_manifests<br> | https://github.com/vicharak-in/yocto_manifests                                                                                                                                       | Self Explanatory really                    |
+| yocto_workflow      | https://docs.yoctoproject.org/overview-manual/concepts.html#openembedded-build-system-concepts                                                                                       | OpenEmbedded Build System Concepts         |
+|                     |                                                                                                                                                                                      |                                            |
