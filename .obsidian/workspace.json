@@ -4,73 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "401dfb717fb0edb1",
+        "id": "7cad469c91a8efa7",
         "type": "tabs",
         "children": [
           {
-            "id": "fb834e520d2e7d97",
+            "id": "6643de019e9259bd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Graphics Rendering in Linux.md",
+                "file": "3 - Tags/ACPI Concepts.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Graphics Rendering in Linux"
-            }
-          },
-          {
-            "id": "7fb4c9eee04967b6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Application binary interface.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Application binary interface"
-            }
-          },
-          {
-            "id": "ffdae7001659579d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Object file formats.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Object file formats"
-            }
-          },
-          {
-            "id": "d79680c64bb81cfb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Relocatable Object Files.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Relocatable Object Files"
-            }
-          },
-          {
-            "id": "b803fbba202dc5ec",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "title": "ACPI Concepts"
             }
           }
         ]
@@ -256,44 +204,44 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "fb834e520d2e7d97",
+  "active": "6643de019e9259bd",
   "lastOpenFiles": [
-    "Relocatable Object Files.md",
-    "Object file formats.md",
-    "Application binary interface.md",
-    "3 - Tags/03 Object Files.md",
-    "Graphics Rendering in Linux.md",
-    "YOCTO BUILD ISSUES.md",
-    "Scene Graph.md",
-    "3 - Tags/11 System Calls and Kernels.md",
-    "3 - Tags/YOCTO.md",
-    "4 - Indexes/Linux.md",
-    "4 - Indexes/Linux Concepts.md",
-    "4 - Indexes/Linux Driver Development.md",
-    "4 - Indexes/Vicharak.md",
-    "3 - Tags/Linux Kernel Module 1.md",
-    "The Linux Graphics Stack in a Nutshell - Part 1.md",
-    "YOCTO METADATA DIRECTORY STRUCTURE.md",
-    "YOCTO BUILD DIRECTORY STRUCTURE.md",
-    "YOCTO SOURCE DIRECTORY STRUCTURE.md",
-    "OpenEmbedded Build System Concepts.md",
-    "So, what the fuck is this thing called YOCTO?.md",
-    "Checklist Vaaman.md",
-    "aeogrnawouerbr.md",
+    "3 - Tags/ACPI Concepts.md",
+    "General ACPI Terminology.md",
+    "3 - Tags/Defining Terms in ACPI.md",
+    "ACPI Specification and the Structure of ACPI.md",
+    "Pasted image 20250627153736.png",
+    "The Power Management Rationale in ACPI.md",
+    "Principle Goals of ACPI.md",
+    "3 - Tags/6-Shaders.md",
+    "3 - Tags/An Introduction to ACPI.md",
+    "4 - Indexes/ACPI ( Advanced Configuration and Power Interface).md",
+    "Platform Drivers.md",
+    "FLOW CONTROL IN RUST.md",
+    "Variables and Mutability.md",
+    "DATA TYPES IN RUST.md",
+    "FUNCTIONS IN RUST.md",
+    "3 - Tags/Common Programming Concepts.md",
+    "Guessing Game In RUST.md",
+    "Dynamic Device File Creation in Linux.md",
+    "HELLO, CARGO.md",
+    "3 - Tags/Projects in Rust.md",
+    "3 - Tags/Getting started with RUST.md",
+    "4 - Indexes/RUST.md",
+    "3 - Tags/Allwinner A20.md",
+    "3 - Tags/23 Build Systems.md",
+    "Implementing the Write method.md",
+    "Pasted image 20250622210927.png",
+    "Implementing the read method.md",
+    "Pasted image 20250622203619.png",
+    "Pasted image 20250622145245.png",
+    "Char Devices File Operations Methods.md",
+    "Pasted image 20250620231801.png",
+    "Pasted image 20250620231748.png",
+    "Pasted image 20250620225834.png",
+    "Pasted image 20250618124234.png",
     "Pasted image 20250609112335.png",
-    "Getting started with yocto.md",
-    "Untitled 3.md",
-    "LINKS.md",
     "Pasted image 20250609100241.png",
-    "Pasted image 20250609093543.png",
-    "Pasted image 20250609092857.png",
-    "Untitled 2.md",
-    "Pasted image 20250607004417.png",
-    "Pasted image 20250118175640.png",
-    "Pasted image 20250114100626.png",
-    "Pasted image 20250114100537.png",
-    "Pasted image 20250114100512.png",
-    "Pasted image 20250114100505.png",
     "Job_Application_Tracker.xlsx",
     "6 - Full Notes",
     "5 - Templates",
