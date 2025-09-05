@@ -1,0 +1,267 @@
+{
+  "main": {
+    "id": "edcd57eb54f44841",
+    "type": "split",
+    "children": [
+      {
+        "id": "ed6c401fae5bb8ef",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d6bfe408a7d63626",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "6 - Full Notes/How does DHCP work.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "How does DHCP work"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0166ba86a8b75e8b",
+    "type": "split",
+    "children": [
+      {
+        "id": "f3defe859365dc06",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "03d661eb8985a0d9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "a07e185706f46a33",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8a070a19eb1c1c3e",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Untitled.base",
+                "viewName": "Table"
+              },
+              "icon": "lucide-table",
+              "title": "Untitled"
+            }
+          },
+          {
+            "id": "4f1daff60bc2f2fb",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      },
+      {
+        "id": "855ecba1ff17fb0e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "730a830206b52cd3",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 383.5
+  },
+  "right": {
+    "id": "47eeeaff64992700",
+    "type": "split",
+    "children": [
+      {
+        "id": "1e6cee02a679f9ba",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5604727d7bedb737",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "19262f5e5dc7336d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "fe2ae7d9959d6f61",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          },
+          {
+            "id": "100ed8f7177e091d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "07baf99825ea47fc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2f4e023f2fe81997",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:Create new base": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "omnisearch:Omnisearch": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-git:Open Git source control": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "730a830206b52cd3",
+  "lastOpenFiles": [
+    "6 - Full Notes/How does DHCP work.md",
+    "3 - Tags/DHCP.md",
+    "4 - Indexes/Networking.md",
+    "6 - Full Notes/Execution of a Bitbake Build.md",
+    "6 - Full Notes/Object file formats.md",
+    "6 - Full Notes/BITBAKE - An Introduction to the build system.md",
+    "Execution of a Bitbake Build.md",
+    "Untitled.base",
+    "Untitled.md",
+    "6 - Full Notes/PATHS.md",
+    "6 - Full Notes/Implementing the Write method.md",
+    "6 - Full Notes/Implementing the read method.md",
+    "6 - Full Notes/HELLO, CARGO.md",
+    "6 - Full Notes/Guessing Game In RUST.md",
+    "6 - Full Notes/Discovering memory structure.md",
+    "6 - Full Notes/DATA TYPES IN RUST.md",
+    "6 - Full Notes/Checklist Vaaman.md",
+    "6 - Full Notes/Char Devices File Operations Methods.md",
+    "6 - Full Notes/OpenEmbedded Build System Concepts.md",
+    "6 - Full Notes/Linux Commands Used.md",
+    "6 - Full Notes/Linux 6.1 Audio Driver Issue.md",
+    "6 - Full Notes/LINKS.md",
+    "6 - Full Notes/Kernel Build Script.md",
+    "6 - Full Notes/Job_Application_Tracker.xlsx",
+    "6 - Full Notes/Initializing a cdev structure.md",
+    "6 - Full Notes/Graphics Rendering in Linux.md",
+    "6 - Full Notes/Getting started with yocto.md",
+    "6 - Full Notes/General ACPI Terminology.md",
+    "Pasted image 20250627153736.png",
+    "Pasted image 20250622210927.png",
+    "Pasted image 20250622203619.png",
+    "Pasted image 20250622145245.png",
+    "Pasted image 20250620231801.png",
+    "Pasted image 20250620231748.png",
+    "Pasted image 20250620225834.png",
+    "Pasted image 20250618124234.png",
+    "Pasted image 20250609112335.png",
+    "Pasted image 20250609100241.png",
+    "Job_Application_Tracker.xlsx",
+    "6 - Full Notes",
+    "5 - Templates",
+    "4 - Indexes",
+    "3 - Tags"
+  ]
+}

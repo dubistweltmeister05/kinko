@@ -1,0 +1,11 @@
+/mnt/kshitij/yocto/meta-openembedded/meta-oe \
+/mnt/kshitij/yocto/meta-openembedded/meta-python \
+/mnt/kshitij/yocto/meta-openembedded/meta-networking \
+/mnt/kshitij/yocto/meta-openembedded/meta-filesystems \
+/mnt/kshitij/yocto/meta-openembedded/meta-multimedia \
+/mnt/kshitij/yocto/meta-qt5 \
+/mnt/kshitij/yocto/meta-clang \
+/mnt/kshitij/yocto/meta-rockchip \
+/mnt/kshitij/yocto/poky/meta \
+/mnt/kshitij/yocto/poky/meta-poky \
+/mnt/kshitij/yocto/poky/meta-yocto-bsp \

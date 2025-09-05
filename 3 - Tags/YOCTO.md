@@ -1,0 +1,2 @@
+[[Vicharak]]
+[[Linux]]
