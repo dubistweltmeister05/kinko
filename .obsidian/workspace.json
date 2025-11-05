@@ -1,24 +1,22 @@
 {
   "main": {
-    "id": "edcd57eb54f44841",
+    "id": "88a48660f9d6b262",
     "type": "split",
     "children": [
       {
-        "id": "ed6c401fae5bb8ef",
+        "id": "196af3635f9c255e",
         "type": "tabs",
         "children": [
           {
-            "id": "71224cbeed4d3e61",
+            "id": "b83051f04dc3b358",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "6 - Full Notes/How does a hotspot work.md",
-                "mode": "source",
-                "source": false
+                "file": "Pasted image 20250109002033.png"
               },
-              "icon": "lucide-file",
-              "title": "How does a hotspot work"
+              "icon": "lucide-image",
+              "title": "Pasted image 20250109002033"
             }
           }
         ]
@@ -27,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "0166ba86a8b75e8b",
+    "id": "1030d1e5f084d027",
     "type": "split",
     "children": [
       {
-        "id": "f3defe859365dc06",
+        "id": "de1bd46d5d2e77ab",
         "type": "tabs",
         "children": [
           {
-            "id": "03d661eb8985a0d9",
+            "id": "a16c16382580b914",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +46,7 @@
             }
           },
           {
-            "id": "a07e185706f46a33",
+            "id": "adf81aa9b4097b2f",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,20 +63,7 @@
             }
           },
           {
-            "id": "8a070a19eb1c1c3e",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "Untitled.base",
-                "viewName": "Table"
-              },
-              "icon": "lucide-table",
-              "title": "Untitled"
-            }
-          },
-          {
-            "id": "4f1daff60bc2f2fb",
+            "id": "70a4617c412df2bd",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -86,40 +71,37 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
-          }
-        ]
-      },
-      {
-        "id": "855ecba1ff17fb0e",
-        "type": "tabs",
-        "children": [
+          },
           {
-            "id": "730a830206b52cd3",
+            "id": "1f502f671dd9830e",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Untitled 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Untitled 1"
             }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 383.5
+    "width": 300
   },
   "right": {
-    "id": "47eeeaff64992700",
+    "id": "6ab2507e1fe87cb8",
     "type": "split",
     "children": [
       {
-        "id": "1e6cee02a679f9ba",
+        "id": "4abdf851f515b377",
         "type": "tabs",
-        "dimension": 50,
         "children": [
           {
-            "id": "5604727d7bedb737",
+            "id": "052cd1451d5112b8",
             "type": "leaf",
             "state": {
               "type": "backlink",
@@ -137,36 +119,20 @@
             }
           },
           {
-            "id": "19262f5e5dc7336d",
+            "id": "71d3934fc4de881a",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Welcome.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Welcome"
+              "title": "Outgoing links"
             }
           },
           {
-            "id": "fe2ae7d9959d6f61",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "Welcome.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of Welcome"
-            }
-          },
-          {
-            "id": "100ed8f7177e091d",
+            "id": "024fe1c7f4944dcf",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -181,25 +147,21 @@
             }
           },
           {
-            "id": "7a6236f6f5f5a6fd",
+            "id": "303a8edbdac85417",
             "type": "leaf",
             "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
             }
-          }
-        ],
-        "currentTab": 4
-      },
-      {
-        "id": "07baf99825ea47fc",
-        "type": "tabs",
-        "dimension": 50,
-        "children": [
+          },
           {
-            "id": "2f4e023f2fe81997",
+            "id": "33b9ee3238f32ead",
             "type": "leaf",
             "state": {
               "type": "calendar",
@@ -212,67 +174,67 @@
       }
     ],
     "direction": "horizontal",
-    "width": 483.5
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
-      "bases:Create new base": false,
+      "omnisearch:Omnisearch": false,
+      "obsidian-importer:Open Importer": false,
+      "obsidian-git:Open Git source control": false,
+      "templater-obsidian:Templater": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "omnisearch:Omnisearch": false,
-      "obsidian-importer:Open Importer": false,
-      "obsidian-git:Open Git source control": false,
-      "templater-obsidian:Templater": false
+      "bases:Create new base": false
     }
   },
-  "active": "71224cbeed4d3e61",
+  "active": "a16c16382580b914",
   "lastOpenFiles": [
-    "6 - Full Notes/How does a hotspot work.md",
-    "4 - Indexes/Networking.md",
-    "6 - Full Notes/What are Network Address Translation Tables and how are they used.md",
-    "6 - Full Notes/What the hell is IP Filtering.md",
-    "6 - Full Notes/1502. Can Make Arithmetic Progression From Sequence.md",
-    "3 - Tags/IPT - 4 Network Address Translation Introduction.md",
-    "3 - Tags/IPT - 3  IP filtering introduction.md",
-    "6 - Full Notes/A brief about tcp-ip.md",
-    "Pasted image 20250915142445.png",
-    "Pasted image 20250915121036.png",
-    "6 - Full Notes/How does a DNS server work.md",
-    "6 - Full Notes/Application binary interface.md",
-    "3 - Tags/IPT - 2 TCP-IP repetition.md",
-    "4 - Indexes/IPTABLES-Tutorial.md",
-    "6 - Full Notes/A Brief about DHCP.md",
-    "6 - Full Notes/My 3 years at Team Automatons.md",
-    "6 - Full Notes/What is IP routing, and how does it really work.md",
-    "Pasted image 20250109002033.png",
-    "Pasted image 20250910112144.png",
-    "6 - Full Notes/168. Excel SHeet Comuln Title.md",
-    "6 - Full Notes/Object file formats.md",
-    "Pasted image 20250910102104.png",
-    "Pasted image 20250905154019.png",
-    "3 - Tags/DHCP.md",
-    "6 - Full Notes/Execution of a Bitbake Build.md",
-    "6 - Full Notes/BITBAKE - An Introduction to the build system.md",
-    "Execution of a Bitbake Build.md",
-    "Untitled.base",
-    "Untitled.md",
-    "6 - Full Notes/PATHS.md",
-    "6 - Full Notes/Implementing the Write method.md",
-    "6 - Full Notes/Implementing the read method.md",
-    "6 - Full Notes/HELLO, CARGO.md",
+    "6 - Full Notes/4 Hello Window.md",
+    "6 - Full Notes/Object Oriented Thinking.md",
+    "6 - Full Notes/Stack.md",
+    "3 - Tags/05 Stack and Heap.md",
+    "Untitled 1.md",
+    "6 - Full Notes/Booting U-Boot on the A20.md",
+    "6 - Full Notes/Building a Linux Kernel Model.md",
+    "6 - Full Notes/Char Devices File Operations Methods.md",
+    "6 - Full Notes/Char, Block and Network Drivers.md",
+    "6 - Full Notes/Checklist Vaaman.md",
+    "6 - Full Notes/Circular Linked List.md",
+    "6 - Full Notes/Deletion of a node from a linked list.md",
+    "6 - Full Notes/Compilation Pipeline.md",
+    "6 - Full Notes/Compiler.md",
+    "6 - Full Notes/DATA TYPES IN RUST.md",
+    "6 - Full Notes/Dear Mumbai.md",
+    "5 - Templates/Problem Approach Document.md",
+    "5 - Templates/Main Note.md",
+    "5 - Templates/Journal Template.md",
+    "5 - Templates/Blog Template.md",
+    "5 - Templates",
+    "4 - Indexes/Vicharak.md",
+    "4 - Indexes/Twitter Posting.md",
+    "4 - Indexes/RUST.md",
+    "4 - Indexes/openGL.md",
+    "4 - Indexes/Linux.md",
+    "4 - Indexes/Linux Driver Development.md",
+    "4 - Indexes",
+    "3 - Tags",
     "6 - Full Notes/Job_Application_Tracker.xlsx",
+    "6 - Full Notes",
+    "Untitled.base",
     "Pasted image 20250627153736.png",
     "Pasted image 20250622210927.png",
     "Pasted image 20250622203619.png",
     "Pasted image 20250622145245.png",
-    "Job_Application_Tracker.xlsx",
-    "6 - Full Notes",
-    "5 - Templates",
-    "4 - Indexes",
-    "3 - Tags"
+    "Pasted image 20250620231801.png",
+    "Pasted image 20250620231748.png",
+    "Pasted image 20250620225834.png",
+    "Pasted image 20250618124234.png",
+    "Pasted image 20250609112335.png",
+    "Pasted image 20250609100241.png"
   ]
 }

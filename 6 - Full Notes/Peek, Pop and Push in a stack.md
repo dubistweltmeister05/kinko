@@ -1,6 +1,6 @@
 2025-01-14 00:23
 
-Tags: [[Stack]]
+Tags: [[3 - Tags/Stack]]
 
 ## Push Operation 
 

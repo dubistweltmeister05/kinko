@@ -1,6 +1,6 @@
 2025-01-13 23:28
 
-Tags: [[Stack]]
+Tags: [[3 - Tags/Stack]]
 
 A stack is a LIFO data structure. It accepts the items from from one end and they can be removed in the order that they were entered in. 
 
