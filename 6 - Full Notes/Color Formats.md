@@ -1,0 +1,16 @@
+[[Basic Concepts]]
+
+The representation of a pixel is something complex yet elegant. It is not a combination of 3 different values - R, G, and B. It is a 3-dimentional vector that is rendered into a 2-DImenetional space, with a lot of complexity involved in the conversion that makes the rendering possible. 
+
+Each pixel on the display screen is a combination of 3 - Red, Blue and Green. However, the representation of the final color that we see is not a bit part addition of 3 8-bit values. Rather, it is the additive combination of 3 8-bit vectors, each vector being the representation of a particular color of the final display image that is being shown. The 3-d space does not exist - it is a mathematical concept that helps the calculation, and the final projection of the vector is then rendered onto a 2-Dimentional space. 
+
+### How Does Color Work
+
+The color theory states that any and every color in this world can be formulated with a combination of Red, Blue, and Green. Think of these as the 3 vertices of a cube. The space formed by these (the cube) is called the color space. Every single color in this world can be represented as a point within the cube. Now, it is intuitive to associate size with a shape. What then, could be the size of this color cube? When defining true color, we have 8-bits per color, making it possible to have 16.7 MILLION points within the color cube. This corresponds to the total number of unique colors that can be produces. Does that mean, that this is also the number of colors that we can see? Not really. 
+
+The eyes have cones that are responsive to certain wavelengths - L-cones respond to red, M-cones respond to green, and S-cones respond to blue wavelengths. This is why the RGB mapping feels the most responsive to us. The problem, is the non-linear scaling within  the RGB system. Simply put, doubling the channel length from 8-bits to 16-bits will not make the colors appear more bight, or make it pop out more; doing that will simply fuck up your computer with the number of calculations that it takes. Also, the eye is not uniformly sensitive to all light. Our imperfect vision is more sensitive to green than it is to red and blue, and since all colors in RGB are uniform, that does not translate well into actual vision. 
+
+There are other color mapping, yes. But us embedded software engineers can only work with the mere Megabytes of RAM and flash that we are given, even with the externals that we connect. We are bound to constrain ourselves with the limits of the hardware that we have. However, that does not mean we cannot do amazing things with what we have!
+
+### RGB Coding 
+Each color within the RGB space ranges from 0 to 255. Absolute black is 0,0,0; absolute white would be 255,255,255. And then quite literally, everything else in between. But there seems to be one crucial thing that's missing. Commonly called as brightness, the engineering world calls it Alpha. As if display theory wasn't complex enough, we extend the 3-D space to a 4-D space. The 4th vector, alpha, includes information about the Opacity of each layer, with it's values ranging from 0 to 1. 
