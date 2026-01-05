@@ -4,21 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "b45ba2056bcfe4da",
+        "id": "986add62b7c6bcd4",
         "type": "tabs",
         "children": [
           {
-            "id": "0754085e7b2dbb6c",
+            "id": "45459500f7a61ee5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6 - Full Notes/Color Formats.md",
+                "file": "3 - Tags/ARM_Cortex And STM32 Fundamentals.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Color Formats"
+              "title": "ARM_Cortex And STM32 Fundamentals"
+            }
+          },
+          {
+            "id": "eb2a5528a36c8174",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -210,14 +220,29 @@
       "bases:Create new base": false
     }
   },
-  "active": "0754085e7b2dbb6c",
+  "active": "45459500f7a61ee5",
   "lastOpenFiles": [
+    "3 - Tags/ARM_Cortex And STM32 Fundamentals.md",
+    "3 - Tags/Booting A BeagleBone.md",
+    "3 - Tags/Scheduler Design.md",
+    "3 - Tags/RTOS Concepts & Embedded System.md",
+    "3 - Tags/Sensor Interfacing (I2C & Timing-Based).md",
+    "3 - Tags/PWM & Motor Control.md",
+    "3 - Tags/ADC & DAC.md",
+    "3 - Tags/UART Communication.md",
+    "3 - Tags/Timers & Delay Generation.md",
+    "3 - Tags/GPIO & Basic Sensor Interfacing.md",
+    "3 - Tags/STM32F4xx Architecture & Clock System.md",
+    "4 - Indexes/PICT_EMBEDDED.md",
+    "6 - Full Notes/Coloring something for embedded graphics.md",
+    "3 - Tags/Basic Concepts.md",
     "6 - Full Notes/Fundamentals of Embedded Graohics.md",
-    "6 - Full Notes/Color Formats.md",
+    "6 - Full Notes/58. Length of Last Word.md",
+    "Untitled.canvas",
+    "2025-11-07.md",
     "Pasted image 20251106164554.png",
     "4 - Indexes/openGL.md",
     "3 - Tags/Learn openGL - Notes.md",
-    "3 - Tags/Basic Concepts.md",
     "4 - Indexes/Embedded Graphics.md",
     "3 - Tags/TouchGFX.md",
     "Pasted image 20250109002033.png",
@@ -226,20 +251,6 @@
     "6 - Full Notes/Stack.md",
     "3 - Tags/05 Stack and Heap.md",
     "Untitled 1.md",
-    "6 - Full Notes/Booting U-Boot on the A20.md",
-    "6 - Full Notes/Building a Linux Kernel Model.md",
-    "6 - Full Notes/Char Devices File Operations Methods.md",
-    "6 - Full Notes/Char, Block and Network Drivers.md",
-    "6 - Full Notes/Checklist Vaaman.md",
-    "6 - Full Notes/Circular Linked List.md",
-    "6 - Full Notes/Deletion of a node from a linked list.md",
-    "6 - Full Notes/Compilation Pipeline.md",
-    "6 - Full Notes/Compiler.md",
-    "6 - Full Notes/DATA TYPES IN RUST.md",
-    "6 - Full Notes/Dear Mumbai.md",
-    "5 - Templates/Problem Approach Document.md",
-    "5 - Templates/Main Note.md",
-    "5 - Templates/Journal Template.md",
     "5 - Templates",
     "4 - Indexes",
     "3 - Tags",
