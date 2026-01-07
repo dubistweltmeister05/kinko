@@ -13,22 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3 - Tags/ARM_Cortex And STM32 Fundamentals.md",
+                "file": "3 - Tags/STM32F4xx Architecture & Clock System.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ARM_Cortex And STM32 Fundamentals"
+              "title": "STM32F4xx Architecture & Clock System"
             }
           },
           {
             "id": "eb2a5528a36c8174",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "3 - Tags/ARM_Cortex And STM32 Fundamentals.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "ARM_Cortex And STM32 Fundamentals"
             }
           }
         ]
@@ -222,10 +226,13 @@
   },
   "active": "45459500f7a61ee5",
   "lastOpenFiles": [
+    "stm32f405zg.pdf",
+    "rm0090-stm32f405415-stm32f407417-stm32f427437-and-stm32f429439-advanced-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "3 - Tags/ARM_Cortex And STM32 Fundamentals.md",
+    "3 - Tags/STM32F4xx Architecture & Clock System.md",
     "Pasted image 20260106134831.png",
     "Pasted image 20260106134812.png",
     "2018-04-06-12-43-40-1024x844.jpg.webp",
-    "3 - Tags/ARM_Cortex And STM32 Fundamentals.md",
     "3 - Tags/Booting A BeagleBone.md",
     "3 - Tags/Scheduler Design.md",
     "3 - Tags/RTOS Concepts & Embedded System.md",
@@ -235,7 +242,6 @@
     "3 - Tags/UART Communication.md",
     "3 - Tags/Timers & Delay Generation.md",
     "3 - Tags/GPIO & Basic Sensor Interfacing.md",
-    "3 - Tags/STM32F4xx Architecture & Clock System.md",
     "4 - Indexes/PICT_EMBEDDED.md",
     "6 - Full Notes/Coloring something for embedded graphics.md",
     "3 - Tags/Basic Concepts.md",
@@ -263,7 +269,6 @@
     "Pasted image 20250622210927.png",
     "Pasted image 20250622203619.png",
     "Pasted image 20250622145245.png",
-    "Pasted image 20250620231801.png",
-    "Pasted image 20250620231748.png"
+    "Pasted image 20250620231801.png"
   ]
 }
