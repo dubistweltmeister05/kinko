@@ -1,11 +1,47 @@
 [[PICT_EMBEDDED]]
 
 
-![[Pasted image 20260108171448.png]]
 # Lecture 2 – STM32F40xx Architecture and Clock / Bus Systems
 
----
+![[Pasted image 20260108171448.png]]
 
+
+---
+Right. We have now understood the basics of a Cortex M-4 MCU. Now, we shall take a look at the actual implementation of the Cortex M-4 architecture onto an MCU, which you now hold in your hands. Here is what the product specification from ST itself says about the F407 MCU - 
+
+The STM32F407/417 lines are designed for medical, industrial and consumer applications where the high level of integration and performance, embedded memories and rich peripheral set inside packages as small as 10 x 10 mm are required.
+The STM32F407/417 offers the performance of the Cortex™-M4 core (with floating point unit) running at 168 MHz.
+
+***Performance***: At 168 MHz, the STM32F407/417 deliver 210 DMIPS/566 CoreMark performance executing from Flash memory, with 0-wait states using ST’s ART (Adaptive Real-Time) Accelerator. The DSP instructions and the floating point unit enlarge the range of addressable applications.
+
+***Power efficiency***: ST’s 90 nm process, ART Accelerator and the dynamic power scaling enables the current consumption in run mode and executing from Flash memory to be as low as 238 µA/MHz at 168 MHz.
+
+***Rich connectivity***: Superior and innovative peripherals - Compared to the STM32F4x5 series, the STM32F407/417 product lines feature Ethernet MAC10/100 with IEEE 1588 v2 support and a 8- to 14-bit parallel camera interface to connect a CMOS camera sensor.
+
+2x USB OTG (one with High Speed support).
+
+Audio: dedicated audio PLL and 2 full duplex I²S
+
+Up to 15 communication interfaces (including 6x USARTs running at up to 11.25 Mbit/s, 3x SPI running at up to 45 Mbit/s, 3x I²C, 2x CAN, SDIO)
+Analog: two 12-bit DACs, three 12-bit ADCs reaching 2.4 MSPS or 7.2 MSPS in interleaved mode
+
+Up to 17 timers: 16- and 32-bit running at up to 168 MHz
+
+Easily extendable memory range using the flexible static memory controller supporting Compact Flash, SRAM, PSRAM, NOR and NAND memories
+Analog true random number generator
+
+The STM32F417 also integrates a crypto/hash processor providing hardware acceleration for AES 128, 192, 256, Triple DES, and hash (MD5, SHA-1).
+
+Integration: The STM32F417x portfolio provides from 512 Kbytes (on WLCSP90 package only) to 1 Mbyte of Flash, 192 Kbytes of SRAM and from 64 to 144 pins in packages as small as 4 x 4.2 mm.
+
+The STM32F407/417 product lines provide from 512 Kbytes to 1 MByte of Flash, 192 Kbytes of SRAM, and from 100 to
+176 pins in packages as small as 10 x 10 mm.
+
+Well, the info dump is cool and all, sounds like it's a superlative processor after all. But we are here to find out about what does it all mean, aren't we? What are the actual uses of these impressive sounding peripherals and how do they exactly work? Well, I sure am glad that you asked! 
+
+This lecture shall go deep into a few of these peripherals, and to tie it all together, we shall take a look at the Clock and Bus interfaces of this processor, which helps us understand how do these peripherals get their juice (power) and how do they communicate their data to and from the central CPU. 
+
+--- 
 ## MCU Features and In-Chip Peripherals
 
 ### Flash
