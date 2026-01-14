@@ -46,6 +46,25 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 
 ### Flash
 - Flash interface
+	For any sort of compute system to function, a fundamental requirement would be a space to function within. A space to store and retrieve things as and when demanded by an operation. 
+	The Flash memory, is that playground for our MCU. 
+	
+	If we talk specs, there is a flash memory of 512 Kbytes or 1 Mbytes available for storing programs and data, plus 512 bytes of OTP memory. But what does it mean? And how does a processor interact with it?
+	
+	Like I mentioned, the flash memory acts as the playground for any and all operations that the MCU wished to do. It serves as non-volatile storage for program code and constant data, allowing the MCU to retain its instructions and essential information even when power is removed. It is used to store the firmware or application code that the MCU executes upon startup, and it supports in-circuit programming, enabling updates without removing the chip from the circuit.
+	
+	In terms of our own board, there's provisions for Byte, half-word, word and double word write on the flash, along with sector and mass erase capabilities. The flash memory is organized as follows:
+			– A main memory block divided into 4 sectors of 16 Kbytes, 1 sector of 64 Kbytes,
+				7 sectors of 128 Kbytes
+			– System memory from which the device boots in System memory boot mode
+			– 512 OTP (one-time programmable) bytes for user data
+				The OTP area contains 16 additional bytes used to lock the corresponding OTP
+				data block.
+			– Option bytes to configure read and write protection, BOR level, watchdog
+				software/hardware and reset when the device is in Standby or Stop mode.
+				
+	Now, how the hell do we interact with this? Simple - via buses! A bus, is nothing but a collection of wires that transmit signals. Multiple wires are bundled together, which helps transmit a big chunk of data at the same time - a.k.a a parallel interface. When it comes to the Flash, there's 2 buses, the I-code and the D-code bus.
+	 
 - ART accelerator (prefetch, cache, wait states)
 
 ### SRAM
@@ -69,11 +88,7 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 - DMA1
 - DMA2
 
-### Interrupt & Debug Infrastructure
-- NVIC
-- SysTick
-- JTAG / SWD
-- ITM / ETM
+
 
 ---
 
@@ -87,7 +102,11 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 - Basic timers
 - General-purpose timers
 - Advanced-control timers
-
+### Interrupt & Debug Infrastructure
+- NVIC
+- SysTick
+- JTAG / SWD
+- ITM / ETM
 ### SPI
 
 ### I2C
