@@ -46,6 +46,8 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 
 ### Flash
 - Flash interface
+  
+  ![[Pasted image 20260114140927.png]]
 	For any sort of compute system to function, a fundamental requirement would be a space to function within. A space to store and retrieve things as and when demanded by an operation. 
 	The Flash memory, is that playground for our MCU. 
 	
@@ -64,21 +66,27 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 				software/hardware and reset when the device is in Standby or Stop mode.
 				
 	Now, how the hell do we interact with this? Simple - via buses! A bus, is nothing but a collection of wires that transmit signals. Multiple wires are bundled together, which helps transmit a big chunk of data at the same time - a.k.a a parallel interface. When it comes to the Flash, there's 2 buses, the I-code and the D-code bus.
+	
+	The I-Code bus stands for the Instruction-Code Bus, while the D-Code bus means Data Bus. The Cortex M-4 arch is Harvard in nature, which means it had 2 separate buses for an Instruction and a piece of Data. Since the instructions are to be fetched in a linear manner and data fetches are irregular in nature, it makes sense to separate these two in order to not interrupt the flow of instructions with data stalls!
 	 
 - ART accelerator (prefetch, cache, wait states)
+  Basically, the ART accelerator helps speed up the instruction fetch access of the Cotred-M4 processor's internal memory.  Basically, a part of code is stored into a segment of memory that helps provide near-instant access to the CPU, thus avoiding latency due to memory wait states.
+  
+  The cache memory is organized in 64 lines of 256 bits each. Each line contains eight 32-bit segments. Each segment can contain one 32-bit or two 16-bit instruction codes. The cache buffer is an extra line of 256 bits keeping a copy of one of the cache lines. For a cacheable access, it allows the instruction fetch from cache in case of a cache hit and it manages the cache memory line refill (instruction code load) in case of a cache miss. For non-cacheable memory accesses, the instruction is directly fetched from memory.
 
 ### SRAM
 - Main SRAM
+  This, is the volatile memory of the MCU. This is the place where all the run-time compute is performed at. All the local variables, function call return addresses, CPU registers and system context during switching is stored at. 
+  The MCU has 192KB of System SRAM and 4KB of backup SRAM. The embedded SRAM can be accessed as bytes, half-words (16 bits) or full words (32 bits). Read and write operations are performed at CPU speed with 0 wait state. It is quite fast in it's speed, with the obvious downside of it being volatile in nature. 
 - CCM SRAM (Core-Coupled Memory)
-
-### Ethernet MAC
-- Ethernet MAC
-- DMA coupling
+  This is a special memory that guaranteed 0 wait-state access during the runtime, due to it having a dedicated bus to the MCU's core. We can explicitly store data into the CCM by writing to specific addresses. It is often used to store compute data for real time control loops and look-up tables for processing critical data. 
 
 ### FSMC (Flexible Static Memory Controller)
-- External SRAM
-- PSRAM
-- NOR / NAND Flash
+
+- Quite often, it just so happens that the on-chip memory does not fulfill the requirements of the system that is being developed. Afterall, we are talking about KILOBYTES of RAM here, y'all! Interfacing an external chip of memory with the MCU is quite common, and dare I say the norm these days in the industry. ST recognizes this and decided to develop a dedicated interface for interacting with external memory chips, called the FSMC. 
+  
+  This block is used to provide an interface with (a)synchronous memories and 16-bit PC memory cards. It translates the AHB instructions to the appropriate external memory protocol, while keeping the timing requirements of the device. All external memories share the addresses, data and control signals with the controller. Each external device is accessed by means of a unique chip select. The FSMC performs only one access at a time to an external device.
+  ![[Pasted image 20260120101632.png]]
 
 ### USB-OTG
 - OTG FS
@@ -175,3 +183,4 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 
 Links
 
+https://www.st.com/content/ccc/resource/training/technical/product_training/group0/7d/83/8c/1f/3a/1c/43/1e/STM32H7-System-Adaptive_Real-Time_Accelerator_ART/files/STM32H7-System-Adaptive_Real-Time_Accelerator_ART.pdf/_jcr_content/translations/en.STM32H7-System-Adaptive_Real-Time_Accelerator_ART.pdf
