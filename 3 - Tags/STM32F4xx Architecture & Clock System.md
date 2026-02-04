@@ -42,7 +42,7 @@ Well, the info dump is cool and all, sounds like it's a superlative processor af
 This lecture shall go deep into a few of these peripherals, and to tie it all together, we shall take a look at the Clock and Bus interfaces of this processor, which helps us understand how do these peripherals get their juice (power) and how do they communicate their data to and from the central CPU. 
 
 --- 
-## MCU Features and In-Chip Peripherals
+## MCU Memory and Access
 
 ### Flash
 - Flash interface
@@ -88,15 +88,23 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
   This block is used to provide an interface with (a)synchronous memories and 16-bit PC memory cards. It translates the AHB instructions to the appropriate external memory protocol, while keeping the timing requirements of the device. All external memories share the addresses, data and control signals with the controller. Each external device is accessed by means of a unique chip select. The FSMC performs only one access at a time to an external device.
   ![[Pasted image 20260120101632.png]]
 
-### USB-OTG
-- OTG FS
-- OTG HS (ULPI)
-
 ### DMA
-- DMA1
-- DMA2
+Direct Memory Access (DMA) is used to provide high-speed data transfer between peripherals and memory, as well as between memory locations. DMA allows data movement without continuous CPU intervention, freeing CPU resources for other tasks and reducing overall system latency.
 
+The STM32F407 includes two DMA controllers, DMA1 and DMA2, providing a total of 16 streams, with 8 streams per controller. Each stream can be mapped to one of up to eight channels, where each channel corresponds to a specific peripheral request. Arbitration logic within the DMA controller handles priority when multiple DMA requests occur simultaneously.
 
+The DMA controllers connect to the system through AHB master interfaces, allowing access to both memory and peripherals. Data transfers can be configured as 8-bit, 16-bit, or 32-bit accesses, depending on peripheral requirements and memory alignment. Each DMA stream includes an optional FIFO buffer that improves bus efficiency and supports burst transfers. The FIFO threshold level can be configured in software to 1/4, 1/2, or 3/4 of its total capacity.
+
+When operating in direct mode (FIFO disabled), the DMA uses a single internal data buffer to minimize latency. In memory-to-peripheral transfers, this allows one data item to be preloaded so that the transfer can occur immediately when the peripheral issues a DMA request. Each DMA stream can be configured for peripheral-to-memory, memory-to-peripheral, or memory-to-memory transfers, with software-programmable priorities.
+
+#### DMA Transaction
+
+Each DMA transaction has 3 operations:
+• A loading from the peripheral data register or a location in memory, addressed through the DMA_SxPAR or DMA_SxM0AR register 
+• A storage of the data loaded to the peripheral data register or a location in memory addressed through the DMA_SxPAR or DMA_SxM0AR register 
+• A post-decrement of the DMA_SxNDTR register, which contains the number of transactions that still have to be performed
+
+After an event, the peripheral sends a request signal to the DMA controller. The DMA controller serves the request depending on the channel priorities. As soon as the DMA controller accesses the peripheral, an Acknowledge signal is sent to the peripheral by the DMA controller. The peripheral releases its request as soon as it gets the Acknowledge signal from the DMA controller. Once the request has been deasserted by the peripheral, the DMA controller releases the Acknowledge signal. If there are more requests, the peripheral can initiate the next transaction
 
 ---
 
