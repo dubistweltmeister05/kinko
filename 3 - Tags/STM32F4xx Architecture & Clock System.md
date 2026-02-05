@@ -143,50 +143,76 @@ You may think why the hell do we need all this hardware in the first place? Well
 ---
 
 ## How Do We Tie ’Em All Together?
-### Clocks for Power and Buses for Memory
+##### Clocks for Power and Buses for Memory
 
 ---
 
 ## Clocks
+![[Pasted image 20260205231444.png]]
+In simple words, these are power sources for the microcontroller. They are what fuels the whole operation. But why are they called clocks in the first place? Because like how clocks control everything that we do in our days, these signals are the controllers for literally everything that the MCU does. More importantly, WHEN the MCU does something, and how quickly does it get done. 
 
-### HSI
+Think of it as the band of a march-past. The company moves as fast or slow as the beat of the drum, right? That's how the clocks work. They are usually crustal oscillators, which use the principal of piezoelectricity. When an electric voltage is applied to the crystal, it mechanically vibrates at a precise, natural resonant frequency determined by its physical size, shape, and cut. These vibrations generate a small electrical signal, which is amplified by an electronic circuit. The amplified signal is then fed back to the crystal, sustaining continuous oscillations. This positive feedback loop ensures the system oscillates only at the crystal’s resonant frequency, producing a highly stable and accurate electrical signal.
 
+Now, there's MULTIPLE sources for the clock signal to reach the MCU's circuitry. Let's take a look at them all -
 ### HSE
+![[Pasted image 20260205231617.png]]
+The high speed external clock signal (HSE) can be generated from two possible clock sources:
+•HSE external crystal/ceramic resonator
+•HSE external user clock
+The resonator and the load capacitors have to be placed as close as possible to the oscillator pins in order to minimize output distortion and startup stabilization time. The loading capacitance values must be adjusted according to the selected oscillator.
 
-### LSI
+The HSE External Clock, can be a signal (square, sinus or triangle) with ~50% duty cycle has to drive the OSC_IN pin while the OSC_OUT pin should be left HI-Z. While the HSE Crystal/Ceramic Resonator has the advantage of producing a very accurate rate on the main clock. The associated hardware configuration is shown in the above picture.
+### HSI
+The HSI clock signal is generated from an internal 16 MHz RC oscillator and can be used directly as a system clock, or used as PLL input. The HSI RC oscillator has the advantage of providing a clock source at low cost (no external
+components). It also has a faster startup time than the HSE crystal oscillator however, even with calibration the frequency is less accurate than an external crystal oscillator or ceramic resonator.
+![[Pasted image 20260205232047.png]]
 
 ### LSE
+This, is generated from a 32.768 kHz low-speed external crystal or ceramic resonator. It has the advantage of providing a low-power but highly accurate clock source to the real-time clock peripheral (RTC) for clock/calendar or other timing functions. The LSE Clock can remain enabled in all low-power modes and in VBAT mode because it belongs to the RTC power domain.
 
+### LSI
+Finally, the is a low-speed internal RC oscillator that can be used as a low-power clock source for some peripherals, such as the independent watchdog (IWDG) and the auto-wakeup unit (AWU). The LSI Clock frequency is 32.78 kHz. The LSI Clock can be kept running when the system is in stop or standby mode, but it is not functional in shutdown or VBAT mode. It is not very accurate and cannot be calibrated.
 ### PLL
-- PLL source selection
-- SYSCLK generation
-- Peripheral clock generation
+![[Pasted image 20260205233437.png]]
+Think of this as the shot of espresso that we have. It boosts the clock signal from one of these sources at a max of 180 MHz when it comes to the Cortex M-4 MCUs. A phase locked loop, PLL, is basically of form of servo loop. Although a PLL performs its actions on a radio frequency signal, all the basic criteria for loop stability and other parameters are the same. In this way the same theory can be applied to a phase locked loop as is applied to servo loops.
 
+In the basic PLL, reference signal and the signal from the voltage controlled oscillator are connected to the two input ports of the phase detector. The output from the phase detector is passed to the loop filter and then filtered signal is applied to the voltage controlled oscillator. The Voltage Controlled Oscillator, VCO, within the PLL produces a signal which enters the phase detector. Here the phase of the signals from the VCO and the incoming reference signal are compared and a resulting difference or error voltage is produced. This corresponds to the phase difference between the two signals.
+
+The error signal from the phase detector passes through a low pass filter which governs many of the properties of the loop and removes any high frequency elements on the signal. Once through the filter the error signal is applied to the control terminal of the VCO as its tuning voltage. The sense of any change in this voltage is such that it tries to reduce the phase difference and hence the frequency between the two signals. Initially the loop will be out of lock, and the error voltage will pull the frequency of the VCO towards that of the reference, until it cannot reduce the error any further and the loop is locked.
+
+When the PLL, phase locked loop, is in lock a steady state error voltage is produced. By using an amplifier between the phase detector and the VCO, the actual error between the signals can be reduced to very small levels. However some voltage must always be present at the control terminal of the VCO as this is what puts onto the correct frequency.
+
+The fact that a steady error voltage is present means that the phase difference between the reference signal and the VCO is not changing. As the phase between these two signals is not changing means that the two signals are on exactly the same frequency.
+![[Pasted image 20260205233940.png]]
 ### Clock Tree & Prescalers
-- AHB prescalers
-- APB prescalers
+
+Once a clock source is selected and optionally multiplied using the PLL, the resulting system clock cannot be fed directly to every part of the MCU at the same rate. Different blocks inside the microcontroller have very different speed, power, and timing requirements. This is where the **clock tree** comes into play. The clock tree is a hierarchical distribution network that takes the system clock and divides it into multiple derived clocks, each tailored for a specific domain inside the MCU.
+
+Prescalers sit at key junctions in this clock tree and act as programmable frequency dividers. By configuring these prescalers, the same MCU can run the CPU core at a high frequency while slowing down peripheral buses to save power and meet timing constraints. In the STM32F4, the most important prescalers divide the clock before it reaches the AHB and APB buses. This gives the designer fine-grained control over performance versus power consumption, without changing the main clock source.
 
 ---
 
-## Buses
+### AHB and APB Buses
 
-### AHB Buses
-- AHB1 (GPIO, DMA, SRAM)
-- AHB2 (USB, RNG, DCMI)
-- AHB3 (FSMC)
+The STM32F4 uses a **multi-bus architecture**, rather than a single shared bus, to improve performance and scalability. At the top of this hierarchy is the **Advanced High-performance Bus (AHB)**, which is designed for high-speed data transfers. The CPU core, SRAM, DMA controllers, and other bandwidth-hungry blocks sit on AHB buses. This ensures that instruction fetches, data accesses, and DMA transfers can occur at high speed with minimal contention.
 
-### APB Buses
-- APB1 (low-speed peripherals)
-- APB2 (high-speed peripherals)
+Below the AHB lie the **Advanced Peripheral Buses (APB1 and APB2)**. These buses are optimized for simplicity and low power rather than raw speed. Most peripherals—timers, UARTs, SPI, I²C, ADCs—are connected here. APB1 typically runs at a lower frequency and hosts lower-speed peripherals, while APB2 runs faster and serves higher-performance peripherals. This split allows the system to balance throughput and power efficiency without overdesigning every peripheral interface.
+
+---
 
 ### Timer Clock Behavior
-- APB prescaler impact
-- Timer clock doubling
+
+Timers in STM32 MCUs have a special relationship with the bus clocks that often surprises beginners. While timers are connected to the APB buses, they do **not always run at the same frequency as the APB bus itself**. When the APB prescaler is set to divide the clock (i.e., the APB is running slower than AHB), the timer clock is automatically doubled. This design ensures that timers can still achieve high timing resolution even when the peripheral bus is slowed down to save power.
+
+This behavior is crucial for real-time applications. It allows precise timing, PWM generation, and input capture measurements without forcing the entire peripheral bus to run at high speed. However, it also means that understanding timer frequencies requires looking not just at the timer configuration, but at the **entire clock tree**, including APB prescalers. Many timing bugs stem from overlooking this subtle but intentional design choice.
+
+---
 
 ### Bus Matrix & Arbitration
-- CPU access paths
-- DMA arbitration
-- Peripheral contention
+
+With multiple bus masters present—CPU, DMA controllers, Ethernet, USB—the MCU needs a way to manage simultaneous access to shared resources like SRAM and Flash. This is handled by the **bus matrix**, an internal switching fabric that connects masters to slaves dynamically. Instead of a single shared bus where everyone waits their turn, the bus matrix allows multiple transfers to occur in parallel, as long as they target different resources.
+
+When two masters request access to the same slave at the same time, **arbitration logic** decides who proceeds first. Arbitration policies are designed to favor fairness and real-time responsiveness, ensuring that high-priority traffic such as DMA or instruction fetches is not starved. This mechanism is largely invisible to firmware, but it has a direct impact on performance, latency, and determinism. Understanding that data movement is governed by arbitration—not just clock speed—helps explain why certain workloads behave unpredictably under heavy DMA or peripheral activity.
 
 Links
 
@@ -197,3 +223,7 @@ https://medium.com/@kshitijvaze/general-purpose-input-output-a-generic-guide-ff1
 https://www.digikey.com/en/maker/projects/getting-started-with-stm32-timers-and-timer-interrupts/d08e6493cefa486fb1e79c43c0b08cc6
 
 https://www.motioncontroltips.com/what-is-nested-vector-interrupt-control-nvic/
+
+https://www.electronics-notes.com/articles/radio/pll-phase-locked-loop/tutorial-primer-basics.php
+
+https://labs.dese.iisc.ac.in/embeddedlab/using-pll/
