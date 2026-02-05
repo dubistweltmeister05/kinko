@@ -64,8 +64,6 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 
 ### SRAM
 
-[](https://github.com/dubistweltmeister05/kinko/blob/master/3%20-%20Tags/STM32F4xx%20Architecture%20%26%20Clock%20System.md#sram)
-
 - Main SRAM This, is the volatile memory of the MCU. This is the place where all the run-time compute is performed at. All the local variables, function call return addresses, CPU registers and system context during switching is stored at. The MCU has 192KB of System SRAM and 4KB of backup SRAM. The embedded SRAM can be accessed as bytes, half-words (16 bits) or full words (32 bits). Read and write operations are performed at CPU speed with 0 wait state. It is quite fast in it's speed, with the obvious downside of it being volatile in nature.
 - CCM SRAM (Core-Coupled Memory) This is a special memory that guaranteed 0 wait-state access during the runtime, due to it having a dedicated bus to the MCU's core. We can explicitly store data into the CCM by writing to specific addresses. It is often used to store compute data for real time control loops and look-up tables for processing critical data.
 
@@ -130,9 +128,15 @@ Interrupts are quite curious, since they allow us to have a say over which signa
 
 Now, the cool thing about ST MCUs is that it has a dedicated hardware block called the Nested Vector Interrupt Controller, which takes care of managing the actual interrupt delivery of the signals that it receives. This block is responsible for managing how interrupts are accepted, prioritized, and serviced by the CPU.
 
-Depending on the device family, the NVIC can handle 82 to 91 maskable interrupt channels (apart from the 16 core Cortex-M system exceptions). Each interrupt can be assigned one of 16 programmable priority levels (4-bit priority field), allowing fine-grained control over which events preempt others. The hardware is designed for very low-latency exception handling, so critical signals are serviced almost immediately. It also integrates power-management control hooks (like sleep/wake behavior) and exposes system control registers that let firmware configure, enable, disable, or nest interrupts safely and efficiently.
+Depending on the device family, the NVIC can handle 82 to 91 maskable interrupt channels, basically, reasons to interrupt the processor (apart from the 16 core Cortex-M system exceptions). Each interrupt can be assigned one of 16 programmable priority levels (4-bit priority field), allowing fine-grained control over which events preempt others. The hardware is designed for very low-latency exception handling, so critical signals are serviced almost immediately. It also integrates power-management control hooks (like sleep/wake behavior) and exposes system control registers that let firmware configure, enable, disable, or nest interrupts safely and efficiently.
 
 In short, instead of software constantly polling for events, the NVIC lets the hardware intelligently decide who deserves the CPU first - making real-time behavior both predictable and fast.
+
+Now, who does end up providing the interrupt signals to the NVIC? Is it the external signal itself that ends up so close to the processor? Nope. It is another hardware block, called the EXTI. The EXTI block, receives the external signal and detects the edges or the signal levels. Depending on how has the interrupting signal been configured in the EXTI registers, it will turn them into interrupt requests or events.
+
+Think about it this way - the EXTI determines if any particular signal should have the ability to generate an interrupt. The NVIC decides which interrupt gets services in case there are multiple present. The EXTI has lines, while the NVIC has channels. Depending on the board and the manufacturer, different lines may map to different channels. 
+
+You may think why the hell do we need all this hardware in the first place? Well, the answer is that interrupts need to be filtered; there's a need to determine if the interrupt is supposed to be masked or not, which edge should be considered as the trigger for the interrupt, and a lot more. We cannot waste CPU cycles to do all this. The name of the game is to reduce the workload on the CPU, and if hardware is needed to do that, then so be it!  
 ![[Pasted image 20260204224604.png]]
 
 
@@ -191,3 +195,5 @@ https://www.allaboutcircuits.com/technical-articles/introduction-to-microcontrol
 https://medium.com/@kshitijvaze/general-purpose-input-output-a-generic-guide-ff1838968c13
 
 https://www.digikey.com/en/maker/projects/getting-started-with-stm32-timers-and-timer-interrupts/d08e6493cefa486fb1e79c43c0b08cc6
+
+https://www.motioncontroltips.com/what-is-nested-vector-interrupt-control-nvic/
