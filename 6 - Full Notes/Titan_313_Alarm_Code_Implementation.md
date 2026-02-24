@@ -63,7 +63,6 @@ typedef struct {
 
     // Timestamp at activation
     RTC_TimeTypeDef trigger_time;
-    RTC_DateTypeDef trigger_date;
 } MasterAlarm_t;
 ```
 
@@ -75,13 +74,10 @@ typedef struct {
 typedef struct {
     uint8_t alarm_id;               // Alarm type (0-9)
     RTC_TimeTypeDef trigger_time;   // Time when alarm was triggered
-    RTC_DateTypeDef trigger_date;   // Date when alarm was triggered
     RTC_TimeTypeDef clear_time;     // Time when alarm was cleared
-    RTC_DateTypeDef clear_date;     // Date when alarm was cleared
     float measured_value;           // Value at trigger
     float setpoint;                 // Setpoint at trigger
     ClearMode_t clear_mode;         // How the alarm was cleared
-    bool valid;                     // Entry contains valid data
     bool cleared;                   // Alarm has been cleared
 } AlarmHistoryEntry_t;
 ```

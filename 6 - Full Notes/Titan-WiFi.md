@@ -1,3 +1,4 @@
+[[Titan]]
 # TorTitan ESP32-S3 Firmware Design Document
 
 [![ESP32-S3](https://img.shields.io/badge/ESP32--S3-MCU-blue.svg)](https://www.espressif.com/en/products/socs/esp32-s3)
