@@ -46,22 +46,20 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 
 ### Flash
 - For any sort of compute system to function, a fundamental requirement would be a space to function within. A space to store and retrieve things as and when demanded by an operation. The Flash memory, is that playground for our MCU.
-    
-    If we talk specs, there is a flash memory of 512 Kbytes or 1 Mbytes available for storing programs and data, plus 512 bytes of OTP memory. But what does it mean? And how does a processor interact with it?
-    
-    Like I mentioned, the flash memory acts as the playground for any and all operations that the MCU wished to do. It serves as non-volatile storage for program code and constant data, allowing the MCU to retain its instructions and essential information even when power is removed. It is used to store the firmware or application code that the MCU executes upon startup, and it supports in-circuit programming, enabling updates without removing the chip from the circuit.
-    
-    In terms of our own board, there's provisions for Byte, half-word, word and double word write on the flash, along with sector and mass erase capabilities. The flash memory is organized as follows: – A main memory block divided into 4 sectors of 16 Kbytes, 1 sector of 64 Kbytes, 7 sectors of 128 Kbytes – System memory from which the device boots in System memory boot mode – 512 OTP (one-time programmable) bytes for user data The OTP area contains 16 additional bytes used to lock the corresponding OTP data block. – Option bytes to configure read and write protection, BOR level, watchdog software/hardware and reset when the device is in Standby or Stop mode.
-    
-    Now, how the hell do we interact with this? Simple - via buses! A bus, is nothing but a collection of wires that transmit signals. Multiple wires are bundled together, which helps transmit a big chunk of data at the same time - a.k.a a parallel interface. When it comes to the Flash, there's 2 buses, the I-code and the D-code bus.
-    
-    The I-Code bus stands for the Instruction-Code Bus, while the D-Code bus means Data Bus. The Cortex M-4 arch is Harvard in nature, which means it had 2 separate buses for an Instruction and a piece of Data. Since the instructions are to be fetched in a linear manner and data fetches are irregular in nature, it makes sense to separate these two in order to not interrupt the flow of instructions with data stalls!
-    
-- ART accelerator (prefetch, cache, wait states) Basically, the ART accelerator helps speed up the instruction fetch access of the Cotred-M4 processor's internal memory. Basically, a part of code is stored into a segment of memory that helps provide near-instant access to the CPU, thus avoiding latency due to memory wait states.
-    
-    The cache memory is organized in 64 lines of 256 bits each. Each line contains eight 32-bit segments. Each segment can contain one 32-bit or two 16-bit instruction codes. The cache buffer is an extra line of 256 bits keeping a copy of one of the cache lines. For a cacheable access, it allows the instruction fetch from cache in case of a cache hit and it manages the cache memory line refill (instruction code load) in case of a cache miss. For non-cacheable memory accesses, the instruction is directly fetched from memory.
-    
+  
+  If we talk specs, there is a flash memory of 512 Kbytes or 1 Mbytes available for storing programs and data, plus 512 bytes of OTP memory. But what does it mean? And how does a processor interact with it?
+  
+  Like I mentioned, the flash memory acts as the playground for any and all operations that the MCU wished to do. It serves as non-volatile storage for program code and constant data, allowing the MCU to retain its instructions and essential information even when power is removed. It is used to store the firmware or application code that the MCU executes upon startup, and it supports in-circuit programming, enabling updates without removing the chip from the circuit.
+  
+  In terms of our own board, there's provisions for Byte, half-word, word and double word write on the flash, along with sector and mass erase capabilities. The flash memory is organized as follows: – A main memory block divided into 4 sectors of 16 Kbytes, 1 sector of 64 Kbytes, 7 sectors of 128 Kbytes – System memory from which the device boots in System memory boot mode – 512 OTP (one-time programmable) bytes for user data The OTP area contains 16 additional bytes used to lock the corresponding OTP data block. – Option bytes to configure read and write protection, BOR level, watchdog software/hardware and reset when the device is in Standby or Stop mode.
+  
+  Now, how the hell do we interact with this? Simple - via buses! A bus, is nothing but a collection of wires that transmit signals. Multiple wires are bundled together, which helps transmit a big chunk of data at the same time - a.k.a a parallel interface. When it comes to the Flash, there's 2 buses, the I-code and the D-code bus.
+  
+  The I-Code bus stands for the Instruction-Code Bus, while the D-Code bus means Data Bus. The Cortex M-4 arch is Harvard in nature, which means it had 2 separate buses for an Instruction and a piece of Data. Since the instructions are to be fetched in a linear manner and data fetches are irregular in nature, it makes sense to separate these two in order to not interrupt the flow of instructions with data stalls!
 
+- ART accelerator (prefetch, cache, wait states) Basically, the ART accelerator helps speed up the instruction fetch access of the Cotred-M4 processor's internal memory. A part of code is stored into a segment of memory that helps provide near-instant access to the CPU, thus avoiding latency due to memory wait states.
+  
+  The cache memory is organized in 64 lines of 256 bits each. Each line contains eight 32-bit segments. Each segment can contain one 32-bit or two 16-bit instruction codes. The cache buffer is an extra line of 256 bits keeping a copy of one of the cache lines. For a cacheable access, it allows the instruction fetch from cache in case of a cache hit and it manages the cache memory line refill (instruction code load) in case of a cache miss. For non-cacheable memory accesses, the instruction is directly fetched from memory.
 ### SRAM
 
 - Main SRAM This, is the volatile memory of the MCU. This is the place where all the run-time compute is performed at. All the local variables, function call return addresses, CPU registers and system context during switching is stored at. The MCU has 192KB of System SRAM and 4KB of backup SRAM. The embedded SRAM can be accessed as bytes, half-words (16 bits) or full words (32 bits). Read and write operations are performed at CPU speed with 0 wait state. It is quite fast in it's speed, with the obvious downside of it being volatile in nature.
@@ -70,8 +68,8 @@ This lecture shall go deep into a few of these peripherals, and to tie it all to
 ### FSMC (Flexible Static Memory Controller)
 
 - Quite often, it just so happens that the on-chip memory does not fulfill the requirements of the system that is being developed. Afterall, we are talking about KILOBYTES of RAM here, y'all! Interfacing an external chip of memory with the MCU is quite common, and dare I say the norm these days in the industry. ST recognizes this and decided to develop a dedicated interface for interacting with external memory chips, called the FSMC.
-    
-    This block is used to provide an interface with (a)synchronous memories and 16-bit PC memory cards. It translates the AHB instructions to the appropriate external memory protocol, while keeping the timing requirements of the device. All external memories share the addresses, data and control signals with the controller. Each external device is accessed by means of a unique chip select. The FSMC performs only one access at a time to an external device. ![[Pasted image 20260120101632.png]]
+  
+  This block is used to provide an interface with (a)synchronous memories and 16-bit PC memory cards. It translates the AHB instructions to the appropriate external memory protocol, while keeping the timing requirements of the device. All external memories share the addresses, data and control signals with the controller. Each external device is accessed by means of a unique chip select. The FSMC performs only one access at time to an external device. ![[Pasted image 20260120101632.png]]
     
 
 ### DMA
@@ -85,7 +83,7 @@ When operating in direct mode (FIFO disabled), the DMA uses a single internal da
 
 #### DMA Transaction
 Each DMA transaction has 3 operations: 
-	• A loading from the peripheral data register or a location in memory, addressed through the DMA_SxPAR or DMA_SxM0AR register 
+	• A loading operation from the peripheral data register or a location in memory, addressed through the DMA_SxPAR or DMA_SxM0AR register 
 	• A storage of the data loaded to the peripheral data register or a location in memory addressed through the DMA_SxPAR or DMA_SxM0AR register 
 	• A post-decrement of the DMA_SxNDTR register, which contains the number of transactions that still have to be performed
 
