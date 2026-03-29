@@ -1,0 +1,19 @@
+[[Twitter Posting]]
+
+Well, since about 300 of you guys have followed me in the last couple days, allow me to re-introduce myself. I am a firmware engineer by profession, who works at an Industrial IoT company in Pune, India. I finished my college degree in 2025, and contrary to what some motherfuckers on this app might say, I am indeed 22 years of age. The TLDR - I am an electronics enthusiast who loves writing long-ass essays about whatever that goes on in my life. 
+
+My tryst with electronics began when I was a kid who accidentally broke a TV remote. I got yelled at, of course - but I was fascinated by the small green rectangular component inside that kept blinking whenever I pressed the membrane keypad. I didn’t know it then, but I was staring at an IR LED stubbornly transmitting signals through a half-broken circuit.  
+  
+The second moment that stayed with me was during Diwali, when my father bought a series of LEDs with a speed controller. Setting it up introduced me, albeit unknowingly, to what I now understand was a PIC16-based controller with a potentiometer adjusting the PWM signal driving the LEDs. I didn’t have the vocabulary for it then. But I knew I was hooked.  
+  
+When it came time to fill in my college preferences, I didn’t enter a single option that didn’t say “Electronics.” That’s how certain I was about getting a degree that gets me a path into electronics for the rest of my life.
+  
+In my first year, I joined the college robotics team. For the next three years, I didn’t go home during semester breaks. My days were chaotic yet strangely routine - I would unlock the lab at 8:30 AM and lock it close to midnight, get back to the hostel room, finish up with assignments near 2-3 AM, and get back up to do it all again the next morning. I researched everything under that roof: every IC, motor, chassis configuration, MCU, sensor, driver circuit - anything I could get my hands on.  
+  
+I was assigned the embedded software domain, though I initially wanted to move into hardware design. I stayed because I wanted to challenge myself. I still remember writing my first 8051 assembly program - a simple number addition routine - and getting it right on the first attempt. For 19-year-old me, it felt the same way fixing those Diwali LEDs did. That was the moment I knew I wanted to do this for life.  
+  
+Over the years, I worked with the 8051 (Assembly), PIC16, LPC2148, and eventually became the first person in the team in about five years to bring up an STM32 platform. I developed a bare-metal programmer’s model and peripheral drivers for the STM32F407 Discovery board - including RCC, GPIO, NVIC, EXTI, SPI, I2C, and USART. Later, I designed and implemented a PID-integrated navigation control system for a four-wheeled robotic chassis, which became my Major project.  
+  
+In my final year, I also began exploring embedded Linux using the BeagleBone Black - diving into Linux device drivers and understanding what it means to work with a constrained kernel space. Trying to implement every single thing that I have done with an STM-32 on a Linux based SoC has unlocked a whole new world for me - one that I am loving more every day. 
+  
+Professionally, I completed a year-long internship at a German automotive MNC during my final year, briefly worked as a Linux Kernel Developer at a startup in Surat, and currently work as a Firmware Developer at an Industrial IoT company in Pune. I also teach Embedded Systems and Microcontrollers to second- and third-year students at Pune Institute of Computer Technology over the weekends. I’ve worked with the Linux kernel, STM32 (Cortex-M7), TI C2000 DSPs, Qualcomm’s QCM2290 platform, and other embedded systems, and I share any insights that I pick up over my day to day life on this app.
