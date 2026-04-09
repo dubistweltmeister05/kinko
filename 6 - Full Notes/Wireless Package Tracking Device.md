@@ -1,4 +1,4 @@
-[[Embedded System Design]]
+[[Embedded System Design 02 - Wireless Joystick Controller]]
 ![[Pasted image 20260329151649.png]]
 # The Goal
 

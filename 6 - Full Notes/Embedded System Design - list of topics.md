@@ -1,4 +1,4 @@
-[[Embedded System Design]]
+[[Embedded System Design 02 - Wireless Joystick Controller]]
 # Embedded Systems Design Series 🚀
 
 ## 📌 Overview
