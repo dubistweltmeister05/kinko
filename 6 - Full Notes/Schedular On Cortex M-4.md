@@ -29,8 +29,8 @@ The TCB is a master structure that holds critical info about each of the tasks t
 	•Task handler pointer – a pointer to the actual code that a task is supposed to run
 
 •Global Variables
-		•current_task – the task number which is currently being executed.
-		•g_tick_count – the variable that is incremented once every time the systick handler is executed. In other words, it holds the number of times that the systick timer has been called upon.
+	•current_task – the task number which is currently being executed.
+	•g_tick_count – the variable that is incremented once every time the systick handler is executed. In other words, it holds the number of times that the systick timer has been called upon.
 
 ---
 
