@@ -1,4 +1,4 @@
-[[Rhygen]]
+[[RhyGen]]
 ## Energy Storage, Electric Propulsion, Control Systems, and Formula 1 Hybrid Technology
 
 ---
