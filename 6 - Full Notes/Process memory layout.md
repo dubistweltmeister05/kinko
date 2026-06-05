@@ -12,3 +12,9 @@ The layout is divided into the following segments -
 - Text segment or Code segment
 - Stack segment
 - Heap segment
+
+# BSS - Block Started by Symbol
+The use is to store uninitialized variables or those that are global and set to zero
+
+# Data segment
+This is used to store Initialized variables that are set to non-zero values
