@@ -1,5 +1,5 @@
 [[Twitter Posting]]
-
+[[Blog Topics]]
 
 Well, it's about time that I wrote something like this! And no, I am not going to charge money for it. (If you'd like to donate some anyway, DM me for the UPI ID) I've been consistently posting on this app since Jan 2025, and in about a year and a half, I think I've built quite an alright network on this app. So, I figured it'll do everyone some good if I made a good essay-esq post about it, so that maybe some of you get inspired by it too! So, here we go - 
 

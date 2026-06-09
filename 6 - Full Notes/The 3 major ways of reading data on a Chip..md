@@ -1,4 +1,5 @@
 [[Twitter Posting]]
+[[Blog Topics]]
 
 Let’s get straight to the damn point. When it comes to MCUs, there are three major ways of reading data from peripherals: Polling, Interrupts, and DMA. Every embedded system you’ll ever touch will rely on one or more of these mechanisms. The difference between them fundamentally comes down to one thing: who is responsible for noticing that data is ready?
 
