@@ -230,20 +230,14 @@ HEVs pair a high-density internal combustion engine (ICE) with an electrical sto
 **Market Dominance Factors**
 
 - **Superior Efficiency:** Electric motors operate at 90–97% efficiency, vastly outperforming the 25–40% peak efficiency of a traditional ICE.
-    
 - **Energy Recovery:** Regenerative braking recaptures 20–40% of kinetic energy during typical urban driving cycles.
-    
 - **Platform Flexibility:** This electrical storage paradigm scales seamlessly across Series, Parallel, Power-split, and Plug-in (PHEV) architectures without requiring new fundamental mediums.
-    
 
 **Technical Limitations**
 
 - **Power Density:** Batteries exhibit slower energy absorption and discharge rates during transient spikes compared to mechanical alternatives like flywheels or hydraulic accumulators.
-    
 - **Degradation:** Battery lifespan is inevitably reduced by cycle aging, calendar aging, and thermal stress.
-    
 - **System Overhead:** Requires complex auxiliary systems, including active thermal management (cooling) and specialized Battery Management Systems (BMS).
-    
 
 **Primary Applications:** Passenger vehicles, SUVs, mass transit buses, commercial delivery fleets, and marine vessels.
 
@@ -257,11 +251,8 @@ Hydraulic hybrids replace electrochemical batteries with hydro-pneumatic accumul
 **Energy Flow Dynamics**
 
 - **Propulsion:** Pressurized nitrogen expands → Pushes hydraulic fluid out of High-Pressure Accumulator → Fluid spins Hydraulic Motor → Wheels.
-    
 - **Recovery (Regen):** Momentum → Wheels spin Hydraulic Pump → Fluid is forced into High-Pressure Accumulator → Nitrogen gas compresses.
-    
 - **Reset:** Low-pressure fluid returns to the reservoir after passing through the motor.
-    
 
 **System Architecture & Components**
 
@@ -275,20 +266,14 @@ Hydraulic hybrids replace electrochemical batteries with hydro-pneumatic accumul
 **Advantages over Electric Hybrids**
 
 - **Extreme Power Density:** Absorbs and releases energy at exceptionally high rates, capturing up to 70–80% of braking energy (compared to 20-40% for electric).
-    
 - **Durability:** Accumulators survive millions of deep-cycle charge/discharge events with zero degradation or cycle aging.
-    
 - **Low Material Cost:** Built from conventional metals and fluids; no rare-earth metals or complex thermal management systems required.
-    
 
 **Technical Limitations**
 
 - **Abysmal Energy Density:** Cannot store energy for long durations or distances. Total energy capacity is a fraction of a Li-ion battery of the same size.
-    
 - **Packaging & Weight:** High-pressure steel accumulators are extremely bulky and heavy.
-    
 - **NVH Issues:** Hydraulic pumps and fluid cavitation generate significant noise, vibration, and harshness.
-    
 
 **Primary Applications:** Heavy duty, frequent stop-and-go vehicles (refuse trucks, transit buses, urban delivery fleets).
 
@@ -301,9 +286,7 @@ Pneumatic hybrids utilize compressed atmospheric air for energy storage. While d
 **Energy Flow Dynamics**
 
 - **Propulsion:** Air Tank → Expanding air pushes engine pistons (Air Motor Mode) → Wheels.
-    
 - **Recovery (Regen):** Momentum → Wheels drive engine pistons (Compressor Mode) → Air forced into High-Pressure Tank.
-    
 
 **System Architecture & Components**
 
@@ -316,18 +299,13 @@ Pneumatic hybrids utilize compressed atmospheric air for energy storage. While d
 **Advantages over Electric & Hydraulic Hybrids**
 
 - **Lightweight & Compact:** Eliminates heavy hydraulic fluids and battery packs. Air is virtually weightless.
-    
 - **Cost-Effective Integration:** Leverages the existing engine block to perform triple duty (combustion, compression, expansion), drastically reducing part counts.
-    
 - **Environmental Safety:** Zero risk of toxic battery fires or hydraulic oil spills.
-    
 
 **Technical Limitations**
 
 - **Thermodynamic Losses:** Compressing air generates massive heat (which dissipates and is lost). Expanding air causes freezing temperatures. This limits round-trip efficiency to roughly 30–40%.
-    
 - **Low Energy Density:** Similar to hydraulic systems, compressed air cannot provide sustained, long-range electric-only driving.
-    
 
 **Primary Applications:** Experimental light passenger vehicles (e.g., PSA Peugeot Citroën's "Hybrid Air" concepts) and lightweight urban commuter cars.
 
@@ -335,42 +313,36 @@ Pneumatic hybrids utilize compressed atmospheric air for energy storage. While d
 ### 4.4 Mechanical (Flywheel) Hybrids
 
 **Core Concept**
+MASTER SOURCE - https://www.racecar-engineering.com/articles/f1/flywheel-hybrid-systems-kers/ 
+Mechanical hybrids, frequently referred to as Kinetic Energy Recovery Systems (KERS), store energy purely as rotational momentum rather than chemical, electrical, or fluid pressure. The system captures braking energy to spin a high-strength rotor (the flywheel) up to extreme speeds-often exceeding 60,000 RPM. When the driver accelerates, that rotational momentum is mechanically linked back to the drivetrain to propel the vehicle forward. 
 
-Mechanical hybrids, frequently referred to as Kinetic Energy Recovery Systems (KERS), store energy purely as rotational momentum rather than chemical, electrical, or fluid pressure. The system captures braking energy to spin a high-strength rotor (the flywheel) up to extreme speeds—often exceeding 60,000 RPM. When the driver accelerates, that rotational momentum is mechanically linked back to the drivetrain to propel the vehicle forward.
+Very simply the system comprises a flywheel connected by a continuously variable transmission [CVT] to the drivetrain. If you move the CVT toward a gear ratio that would speed the flywheel up it stores energy. Conversely, if you move toward a ratio that would slow it down then it releases energy. Finally, a clutch separates the drive if the revs move beyond the limits of the system.
 
 **Energy Flow Dynamics**
 
 - **Propulsion:** Spinning Flywheel $\rightarrow$ Continuously Variable Transmission (CVT) or Clutch System $\rightarrow$ Drivetrain $\rightarrow$ Wheels.
-    
 - **Recovery (Regen):** Momentum $\rightarrow$ Wheels $\rightarrow$ Drivetrain $\rightarrow$ CVT / Clutches $\rightarrow$ Spins the Flywheel up to maximum RPM.
-    
 
 **System Architecture & Components**
 
-|**Component**|**Primary Function & Characteristics**|
-|---|---|
-|**High-Speed Flywheel**|The "battery." Typically a lightweight, high-tensile carbon-fiber cylinder or disc designed to withstand massive centrifugal forces.|
-|**Vacuum Containment Chamber**|Houses the flywheel in a vacuum to eliminate aerodynamic drag (windage) and prevent extreme heat buildup from air friction.|
-|**Transmission Linkage (CVT)**|A sophisticated gearbox (often a toroidal CVT) that seamlessly matches the wildly varying speeds of the flywheel with the speed of the vehicle's driveshaft.|
-|**Internal Combustion Engine**|The primary power source, supplemented by the mechanical boost from the flywheel during acceleration.|
+| **Component**                  | **Primary Function & Characteristics**                                                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **High-Speed Flywheel**        | The "battery." Typically a lightweight, high-tensile carbon-fiber cylinder or disc designed to withstand massive centrifugal forces.                         |
+| **Vacuum Containment Chamber** | Houses the flywheel in a vacuum to eliminate aerodynamic drag (windage) and prevent extreme heat buildup from air friction.                                  |
+| **Transmission Linkage (CVT)** | A sophisticated gearbox (often a toroidal CVT) that seamlessly matches the wildly varying speeds of the flywheel with the speed of the vehicle's driveshaft. |
+| **Internal Combustion Engine** | The primary power source, supplemented by the mechanical boost from the flywheel during acceleration.                                                        |
 
 **Advantages over Electric & Fluid Hybrids**
 
 - **Exceptional Round-Trip Efficiency:** Because the energy remains in a mechanical state (motion $\rightarrow$ motion $\rightarrow$ motion), it completely avoids the severe thermodynamic conversion losses associated with chemical batteries or compressed gases. Efficiency can exceed 70%.
-    
 - **Unmatched Power Density:** A flywheel can absorb massive spikes of braking energy instantly and dump it straight back to the wheels for rapid acceleration, easily outperforming the charge/discharge limits of lithium-ion batteries.
-    
 - **Compact & Agnostic to Degradation:** The system is virtually immune to cycle aging or temperature extremes, functioning purely on mechanical principles in a much smaller footprint than high-pressure hydraulic accumulators.
-    
 
 **Technical Limitations**
 
 - **Bleed-Off (Poor Energy Retention):** Despite frictionless bearings and vacuum chambers, mechanical friction inevitably bleeds off the stored energy. A flywheel is useless for storing energy overnight; it must be used within minutes of capturing it.
-    
 - **Gyroscopic Interference:** A massive, high-speed spinning disc acts as a gyroscope, resisting changes in direction. If not mounted or configured correctly (often requiring dual counter-rotating flywheels), it can negatively impact vehicle handling and cornering dynamics.
-    
 - **Containment Weight:** While carbon-fiber flywheels are light, they require heavy, blast-proof steel or composite containment housings to protect the driver in the event the rotor shatters under massive centrifugal stress.
-    
 
 **Primary Applications:** High-performance motorsport (Formula 1, Le Mans LMP1), hypercars, and heavy urban transit vehicles (stop-and-go city buses) where energy is constantly captured and immediately reused.
 
