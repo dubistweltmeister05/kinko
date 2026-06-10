@@ -157,6 +157,8 @@ A particularly important point is that hybrids are most effective in **urban dri
 
 ---
 ## 3. Hybrids and their configs
+
+![[4EcK0PWANA3h9samgXKir5f_Gr3TRZ8CKGggRpGa5bouZddWxlCYKXwHDEjgMKphRF0AWhE9wULVigMaNWZT1tHq046h5nVagBmzx6-uhVuec75y1dtQgFFn2v2zKF22cTagcPbPpWJVUNFbRqr2Vw7-K3xghsXymZvTWDuO_x7ap-FVltQSM0yFTsyuxOHx.jpeg]]
 ### Parallel
 ![[Pasted image 20260608174508.png]]
 
@@ -200,3 +202,262 @@ Input-Split (the most widely used one)
 ![[Pasted image 20260608180631.png]]
 https://www.mathworks.com/help/autoblks/ug/explore-the-hybrid-electric-vehicle-input-power-split-reference-application.html
 
+## 4. Types of hybrid architectures
+
+### 4.1 Electric Hybrids (HEVs)
+
+**Core Concept**
+
+HEVs pair a high-density internal combustion engine (ICE) with an electrical storage system to maximize powertrain efficiency. The system minimizes fuel waste by running the ICE continuously at peak thermal efficiency—diverting excess power to charge a battery—and drains the battery to power an electric motor during typically inefficient ICE operating windows (e.g., idling or low-speed acceleration).
+
+**Energy Flow Dynamics**
+
+- **Propulsion:** Fuel → ICE → Wheels / Generator
+    
+- **Electric Assist:** Battery → Electric Motor → Wheels
+    
+- **Recovery (Regen):** Momentum → Wheels → Motor (Generator Mode) → Battery
+
+**System Architecture & Components**
+
+| **Component**                  | **Primary Function & Characteristics**                                        |
+| ------------------------------ | ----------------------------------------------------------------------------- |
+| **Internal Combustion Engine** | Delivers high energy density and sustained range.                             |
+| **Electric Motor / Generator** | Drives propulsion, allows idle-shutdown, and executes regenerative braking.   |
+| **Battery Pack**               | Stores electrical energy. Standard chemistries include NiMH, Li-ion, and LFP. |
+| **Power Electronics**          | Modulates energy flow via inverters, DC/DC converters, and motor controllers. |
+
+**Market Dominance Factors**
+
+- **Superior Efficiency:** Electric motors operate at 90–97% efficiency, vastly outperforming the 25–40% peak efficiency of a traditional ICE.
+    
+- **Energy Recovery:** Regenerative braking recaptures 20–40% of kinetic energy during typical urban driving cycles.
+    
+- **Platform Flexibility:** This electrical storage paradigm scales seamlessly across Series, Parallel, Power-split, and Plug-in (PHEV) architectures without requiring new fundamental mediums.
+    
+
+**Technical Limitations**
+
+- **Power Density:** Batteries exhibit slower energy absorption and discharge rates during transient spikes compared to mechanical alternatives like flywheels or hydraulic accumulators.
+    
+- **Degradation:** Battery lifespan is inevitably reduced by cycle aging, calendar aging, and thermal stress.
+    
+- **System Overhead:** Requires complex auxiliary systems, including active thermal management (cooling) and specialized Battery Management Systems (BMS).
+    
+
+**Primary Applications:** Passenger vehicles, SUVs, mass transit buses, commercial delivery fleets, and marine vessels.
+
+---
+
+### 4.2 Hydraulic Hybrids
+**Core Concept**
+
+Hydraulic hybrids replace electrochemical batteries with hydro-pneumatic accumulators. The system uses an incompressible hydraulic fluid (oil) to compress a trapped gas (usually nitrogen). Because fluids can be pumped rapidly and gas absorbs compression almost instantly, this architecture excels at capturing massive, sudden spikes of kinetic energy that would overwhelm chemical batteries.
+
+**Energy Flow Dynamics**
+
+- **Propulsion:** Pressurized nitrogen expands → Pushes hydraulic fluid out of High-Pressure Accumulator → Fluid spins Hydraulic Motor → Wheels.
+    
+- **Recovery (Regen):** Momentum → Wheels spin Hydraulic Pump → Fluid is forced into High-Pressure Accumulator → Nitrogen gas compresses.
+    
+- **Reset:** Low-pressure fluid returns to the reservoir after passing through the motor.
+    
+
+**System Architecture & Components**
+
+|**Component**|**Primary Function & Characteristics**|
+|---|---|
+|**Internal Combustion Engine**|Base power source; can be downsized and run at continuous peak thermal efficiency (Series configuration).|
+|**Hydraulic Pump / Motor**|Reversible unit acting as a pump during braking and a motor during acceleration.|
+|**High-Pressure Accumulator**|The "battery." A robust cylinder where incoming hydraulic fluid compresses inert nitrogen gas up to 5,000 psi.|
+|**Low-Pressure Reservoir**|Stores unpressurized hydraulic fluid before and after it cycles through the system.|
+
+**Advantages over Electric Hybrids**
+
+- **Extreme Power Density:** Absorbs and releases energy at exceptionally high rates, capturing up to 70–80% of braking energy (compared to 20-40% for electric).
+    
+- **Durability:** Accumulators survive millions of deep-cycle charge/discharge events with zero degradation or cycle aging.
+    
+- **Low Material Cost:** Built from conventional metals and fluids; no rare-earth metals or complex thermal management systems required.
+    
+
+**Technical Limitations**
+
+- **Abysmal Energy Density:** Cannot store energy for long durations or distances. Total energy capacity is a fraction of a Li-ion battery of the same size.
+    
+- **Packaging & Weight:** High-pressure steel accumulators are extremely bulky and heavy.
+    
+- **NVH Issues:** Hydraulic pumps and fluid cavitation generate significant noise, vibration, and harshness.
+    
+
+**Primary Applications:** Heavy duty, frequent stop-and-go vehicles (refuse trucks, transit buses, urban delivery fleets).
+
+---
+### 4.3 Pneumatic Hybrids
+**Core Concept**
+
+Pneumatic hybrids utilize compressed atmospheric air for energy storage. While dedicated air pumps can be used, the most efficient designs use a "camless" or fully variable valve-actuated ICE. During braking, the engine cuts fuel and reconfigures its valves to act as an air compressor. During acceleration, the engine reverses the process, using compressed air to push the pistons downward without burning fuel.
+
+**Energy Flow Dynamics**
+
+- **Propulsion:** Air Tank → Expanding air pushes engine pistons (Air Motor Mode) → Wheels.
+    
+- **Recovery (Regen):** Momentum → Wheels drive engine pistons (Compressor Mode) → Air forced into High-Pressure Tank.
+    
+
+**System Architecture & Components**
+
+|**Component**|**Primary Function & Characteristics**|
+|---|---|
+|**Modified ICE / Air Motor**|Functions conventionally with fuel, but transitions to a pneumatic compressor or pneumatic motor via variable valve timing.|
+|**High-Pressure Air Tank**|Carbon-fiber or steel composite vessel storing compressed atmospheric air (typically ~3,000 to 4,500 psi).|
+|**Valve Control System**|Highly precise electromechanical or electrohydraulic actuators that dynamically alter engine valve timing for different operating modes.|
+
+**Advantages over Electric & Hydraulic Hybrids**
+
+- **Lightweight & Compact:** Eliminates heavy hydraulic fluids and battery packs. Air is virtually weightless.
+    
+- **Cost-Effective Integration:** Leverages the existing engine block to perform triple duty (combustion, compression, expansion), drastically reducing part counts.
+    
+- **Environmental Safety:** Zero risk of toxic battery fires or hydraulic oil spills.
+    
+
+**Technical Limitations**
+
+- **Thermodynamic Losses:** Compressing air generates massive heat (which dissipates and is lost). Expanding air causes freezing temperatures. This limits round-trip efficiency to roughly 30–40%.
+    
+- **Low Energy Density:** Similar to hydraulic systems, compressed air cannot provide sustained, long-range electric-only driving.
+    
+
+**Primary Applications:** Experimental light passenger vehicles (e.g., PSA Peugeot Citroën's "Hybrid Air" concepts) and lightweight urban commuter cars.
+
+---
+### 4.4 Mechanical (Flywheel) Hybrids
+
+**Core Concept**
+
+Mechanical hybrids, frequently referred to as Kinetic Energy Recovery Systems (KERS), store energy purely as rotational momentum rather than chemical, electrical, or fluid pressure. The system captures braking energy to spin a high-strength rotor (the flywheel) up to extreme speeds—often exceeding 60,000 RPM. When the driver accelerates, that rotational momentum is mechanically linked back to the drivetrain to propel the vehicle forward.
+
+**Energy Flow Dynamics**
+
+- **Propulsion:** Spinning Flywheel $\rightarrow$ Continuously Variable Transmission (CVT) or Clutch System $\rightarrow$ Drivetrain $\rightarrow$ Wheels.
+    
+- **Recovery (Regen):** Momentum $\rightarrow$ Wheels $\rightarrow$ Drivetrain $\rightarrow$ CVT / Clutches $\rightarrow$ Spins the Flywheel up to maximum RPM.
+    
+
+**System Architecture & Components**
+
+|**Component**|**Primary Function & Characteristics**|
+|---|---|
+|**High-Speed Flywheel**|The "battery." Typically a lightweight, high-tensile carbon-fiber cylinder or disc designed to withstand massive centrifugal forces.|
+|**Vacuum Containment Chamber**|Houses the flywheel in a vacuum to eliminate aerodynamic drag (windage) and prevent extreme heat buildup from air friction.|
+|**Transmission Linkage (CVT)**|A sophisticated gearbox (often a toroidal CVT) that seamlessly matches the wildly varying speeds of the flywheel with the speed of the vehicle's driveshaft.|
+|**Internal Combustion Engine**|The primary power source, supplemented by the mechanical boost from the flywheel during acceleration.|
+
+**Advantages over Electric & Fluid Hybrids**
+
+- **Exceptional Round-Trip Efficiency:** Because the energy remains in a mechanical state (motion $\rightarrow$ motion $\rightarrow$ motion), it completely avoids the severe thermodynamic conversion losses associated with chemical batteries or compressed gases. Efficiency can exceed 70%.
+    
+- **Unmatched Power Density:** A flywheel can absorb massive spikes of braking energy instantly and dump it straight back to the wheels for rapid acceleration, easily outperforming the charge/discharge limits of lithium-ion batteries.
+    
+- **Compact & Agnostic to Degradation:** The system is virtually immune to cycle aging or temperature extremes, functioning purely on mechanical principles in a much smaller footprint than high-pressure hydraulic accumulators.
+    
+
+**Technical Limitations**
+
+- **Bleed-Off (Poor Energy Retention):** Despite frictionless bearings and vacuum chambers, mechanical friction inevitably bleeds off the stored energy. A flywheel is useless for storing energy overnight; it must be used within minutes of capturing it.
+    
+- **Gyroscopic Interference:** A massive, high-speed spinning disc acts as a gyroscope, resisting changes in direction. If not mounted or configured correctly (often requiring dual counter-rotating flywheels), it can negatively impact vehicle handling and cornering dynamics.
+    
+- **Containment Weight:** While carbon-fiber flywheels are light, they require heavy, blast-proof steel or composite containment housings to protect the driver in the event the rotor shatters under massive centrifugal stress.
+    
+
+**Primary Applications:** High-performance motorsport (Formula 1, Le Mans LMP1), hypercars, and heavy urban transit vehicles (stop-and-go city buses) where energy is constantly captured and immediately reused.
+
+---
+### 4.5 Fuel-Cell Battery Hybrid (FCEV)
+
+**Core Concept**
+
+This architecture functions like a series electric hybrid, but replaces the internal combustion engine with a hydrogen fuel cell. The fuel cell acts as an onboard chemical power plant, generating continuous electricity by combining stored hydrogen gas with atmospheric oxygen. Because fuel cells prefer to run at steady-state loads and cannot absorb regenerative braking, a high-voltage battery is paired with it to act as an energy buffer, handling transient power spikes (acceleration) and recovering kinetic energy.
+
+**Energy Flow Dynamics**
+
+- **Propulsion (Steady Cruising):** Hydrogen Tank → Fuel Cell Stack → Electric Motor → Wheels.
+    
+- **Propulsion (Peak Acceleration):** Battery + Fuel Cell Stack → Electric Motor → Wheels.
+    
+- **Recovery (Regen):** Momentum → Wheels → Motor (Generator Mode) → Battery.
+    
+
+**System Architecture & Components**
+
+| **Component**                 | **Primary Function & Characteristics**                                                                                                   |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Fuel Cell Stack**           | Converts hydrogen gas and oxygen into electricity and water vapor. Contains expensive catalysts (e.g., platinum).                        |
+| **Hydrogen Storage Tanks**    | Heavy-duty, carbon-fiber reinforced cylinders storing gaseous hydrogen at extreme pressures (typically 10,000 psi / 700 bar).            |
+| **High-Voltage Battery Pack** | A smaller Li-ion or NiMH pack that buffers the power delivery, shielding the fuel cell from rapid load changes and storing regen energy. |
+| **Electric Motor**            | The sole source of mechanical propulsion.                                                                                                |
+
+**Advantages over Pure EVs**
+
+- **Rapid Refueling:** Fills up with hydrogen gas in 3–5 minutes, mirroring the convenience of traditional gasoline pumps.
+    
+- **Sustained Range & Weight:** Hydrogen offers excellent energy density by weight, making this architecture lighter than massive pure-battery packs for long-haul applications.
+    
+- **True Zero Emissions:** The only tailpipe byproduct is pure water.
+    
+
+**Technical Limitations**
+
+- **Infrastructure:** Severe lack of hydrogen refueling stations globally.
+    
+- **Round-Trip Efficiency:** Producing green hydrogen (electrolysis), compressing it, transporting it, and converting it back to electricity wastes over 60% of the original energy—far less efficient than simply charging a battery directly.
+    
+- **System Cost:** Fuel cell stacks and high-pressure tanks remain highly expensive to manufacture.
+    
+
+**Primary Applications:** Long-haul commercial trucking, transit buses, passenger vehicles (e.g., Toyota Mirai), and maritime shipping.
+
+### 4.6 Battery-Supercapacitor Hybrid
+
+**Core Concept**
+
+This architecture merges the high _energy density_ of chemical batteries with the high _power density_ of supercapacitors (ultracapacitors). Batteries are excellent at providing sustained, low-level power over a long range (marathons) but degrade quickly under massive power spikes. Supercapacitors store energy electrostatically rather than chemically, meaning they can absorb and dump massive amounts of energy almost instantly (sprints) but cannot hold it for long.
+
+**Energy Flow Dynamics**
+
+- **Propulsion (Cruising):** Battery → Electric Motor → Wheels.
+    
+- **Propulsion (Hard Acceleration):** Supercapacitor → Electric Motor → Wheels (shielding the battery from extreme discharge rates).
+    
+- **Recovery (Hard Braking):** Momentum → Motor → Supercapacitor (capturing violent energy spikes the battery cannot absorb fast enough).
+    
+
+**System Architecture & Components**
+
+|**Component**|**Primary Function & Characteristics**|
+|---|---|
+|**Lithium-Ion Battery Pack**|The primary energy reservoir, responsible for vehicle range and base-load power delivery.|
+|**Supercapacitor Bank**|An array of high-capacitance modules that act as a high-speed energy buffer.|
+|**DC/DC Converters**|Highly advanced power electronics that actively manage and isolate the wildly fluctuating voltage of the supercapacitors from the stable voltage needs of the battery and motor.|
+|**Electric Motor / Generator**|Drives the wheels and executes regenerative braking.|
+
+**Advantages over Traditional Battery EVs**
+
+- **Battery Lifespan Extension:** By letting the supercapacitor handle the violent micro-cycles of city driving and hard launches, thermal stress on the chemical battery is drastically reduced, extending its lifespan.
+    
+- **Maximized Energy Recovery:** Captures near 100% of sudden, high-power regenerative braking energy that a standard battery would reject to prevent overheating.
+    
+- **Blistering Performance:** Delivers instantaneous, massive torque for acceleration.
+    
+
+**Technical Limitations**
+
+- **Poor Energy Density:** Supercapacitors are incredibly bulky and heavy relative to the total amount of energy they can store.
+    
+- **Voltage Drop:** Unlike batteries, which deliver a relatively steady voltage until depleted, a supercapacitor's voltage drops linearly and rapidly as it discharges, requiring complex electronics to stabilize.
+    
+- **Self-Discharge:** Supercapacitors leak stored energy rapidly over time; they cannot hold a charge while parked for days.
+
+**Primary Applications:** Hypercars (e.g., Lamborghini Sián), light rail and trams (absorbing/releasing energy between tight city stops), regenerative cranes, and heavy urban transit.
