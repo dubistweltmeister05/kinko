@@ -433,3 +433,773 @@ This architecture merges the high _energy density_ of chemical batteries with th
 - **Self-Discharge:** Supercapacitors leak stored energy rapidly over time; they cannot hold a charge while parked for days.
 
 **Primary Applications:** Hypercars (e.g., Lamborghini Sián), light rail and trams (absorbing/releasing energy between tight city stops), regenerative cranes, and heavy urban transit.
+
+## 5. Batteries, it's operation, and it's types 
+Literally - all you need for this is in here
+https://www.batterydesign.net/chemistry/
+
+## 6. Motors, types and Operation
+ https://electronics.howstuffworks.com/motor.htm
+ https://www.iqsdirectory.com/articles/electric-motor/ac-motor.html
+#### 6.1 Brushed DC Motor
+![[basics-of-brushed-dc-motors-img1.jpg]]
+- **Working Principle:** Utilizes the **Lorentz Force Law**. Direct current flows through the armature coils within a stationary magnetic field, producing a perpendicular mechanical force. A mechanical **commutator and brush assembly** physically flips the electrical polarity every $180^\circ$ of rotation to maintain a continuous, unidirectional torque.
+- **Construction:** 
+	-  _Stator:_ Permanent magnets or field electromagnet windings providing a static magnetic field.
+    - _Rotor (Armature):_ Laminated iron core wrapped with copper wire windings.
+    - _Commutation:_ Segmented copper cylinder (commutator) attached to the rotor shaft; stationary carbon blocks (brushes) ride against it.
+- **Pros & Cons:**
+    - _Pros:_ Exceptionally low production cost; linear torque-speed curve; trivial control requirements (voltage controls speed, current controls torque).    
+    - _Cons:_ Mechanical friction causes rapid brush wear and carbon dust buildup; sparking produces high Electromagnetic Interference (EMI); high maintenance overhead.
+- **Usages:** Automotive starter motors, consumer power tools, toys, motorized car seats, and low-cost window lifters.
+#### 6.2 Brushless DC Motor (BLDC)
+- **Working Principle:** Reverts the brushed layout. An electronic controller (Electronic Speed Controller / ESC) replaces mechanical brushes. The controller uses position feedback (from Hall-effect sensors or back-EMF voltage or Rotary Encoders) to sequentially energize specific stator phases, generating a stepping, rotating magnetic field that pulls the permanent magnet rotor along.
+- **Construction:**
+    - _Stator:_ Slotted steel laminations with concentrated three-phase copper windings        
+    - _Rotor:_ Surface-mounted or internally embedded high-energy permanent magnets (typically Neodymium).    
+    - _Feedback:_ Integrated Hall-effect sensor array embedded in the stator housing.    
+- **Pros & Cons:*    
+    - _Pros:_ High efficiency ($>90\%$); zero maintenance parts (no brushes); long operational lifespan; superior heat dissipation (heat is generated on the outer stator, not the inner rotor).    
+    - _Cons:_ Requires expensive electronic drive circuits; high initial system cost; prone to slight torque ripple at lower RPMs.    
+- **Usages:** Multi-rotor drones, computer hard drives, CPU cooling fans, electric bicycles, and cordless premium power tools.
+#### 6.3 Servo Motor
+- **Working Principle:** Functions as a **closed-loop position control system**. The internal motor (DC, BLDC, or AC) is fed a target command signal (usually via Pulse-Width Modulation). An integrated position sensor continuously monitors the output shaft angle and feeds it to an onboard error amplifier, which dynamically adjusts current to nullify any position discrepancy.
+- **Construction:**
+    - _Prime Mover:_ Standard core brushed, brushless, or AC induction motor.
+    - _Feedback Unit:_ High-resolution optical encoder or precision rotary potentiometer.
+    - _Control Electronics:_ Integrated microprocessor chip and H-bridge drive circuit.
+    - _Mechanical Advantage:_ Internal spur or planetary reduction gear train to swap speed for high torque.
+
+- **Pros & Cons:**
+    - _Pros:_ Extreme angular positioning accuracy; high dynamic acceleration; maintains peak torque capacity at elevated speeds.
+    - _Cons:_ Prone to "hunting" (micro-oscillations around a target position if control loops are poorly tuned); complex setup; high aggregate component cost.
+- **Usages:** Robotic joint actuation, CNC milling machinery axis drives, automated factory assembly lines, and aerospace fly-by-wire control surfaces.
+#### 6.4 Stepper Motor
+- **Working Principle:** Functions as an **open-loop digital positioning system**. The stator electromagnets are arranged in discrete phases. The controller switches power to individual phases in a precise pulse train sequence. With each pulse, the multi-toothed magnetic rotor snaps into alignment with the nearest active stator tooth, moving by a fixed fraction of a degree (a "step").
+    
+- **Construction:**   
+    - _Stator:_ Multi-pole electromagnets with fine, machined teeth covering the pole faces.        
+    - _Rotor:_ A permanent magnet or soft-iron cylinder featuring matching teeth misaligned slightly with the stator spacing.        
+- **Pros & Cons:**
+    - _Pros:_ Precise positioning without requiring an expensive feedback encoder; exceptional holding torque at zero speed; naturally compatible with digital control systems.        
+    - _Cons:_ Will permanently lose positioning tracking ("skip steps") if mechanical load exceeds torque capacity; high power consumption because current is drawn continuously even when stationary; high resonance issues at specific frequencies.        
+- **Usages:** 3D printers, CNC laser cutters, camera slider rigs, and laboratory fluid dosing pumps.    
+
+#### 6.5 Squirrel Cage Induction Motor
+- **Working Principle:** An asynchronous AC machine operating on **Faraday's Law of Induction**. Three-phase AC supplied to the stator creates a Rotating Magnetic Field (RMF). As this field sweeps across the short-circuited rotor bars, it induces an electromotive force (EMF) and a massive current within them. This induced current creates a secondary rotor magnetic field that chases the stator RMF, lagging behind by a fractional speed difference known as "slip."
+- **Construction:**
+    - _Stator:_ Laminated steel ring with distributed three-phase winding slots.
+    - _Rotor:_ Solid iron core containing longitudinal aluminum or copper conducting bars welded together at both ends by heavy short-circuiting rings (resembling a mechanical cage).
+- **Pros & Cons:**
+    - _Pros:_ Indestructible mechanical design; lowest cost-per-horsepower of any industrial motor; naturally self-starting on grid power; zero brush maintenance.
+    - _Cons:_ Massive inrush current spikes ($5\times$ to $7\times$ nominal running current) during startup; fixed running speed unless coupled with an expensive Variable Frequency Drive (VFD).
+- **Usage:**
+	- Heavy industrial water pumps, large manufacturing conveyors, commercial HVAC chillers, and wastewater treatment agitators.
+
+#### 6.6 Slip-Ring Induction Motor (Wound Rotor)
+- **Working Principle:** A specialized configuration of the asynchronous AC induction motor. While the basic induction physics match the squirrel cage model, the internal rotor windings are accessible externally. By inserting variable resistance into the rotor circuit via slip rings during startup, the motor shifts its maximum torque point to zero speed, allowing it to start under immense loads while suppressing inrush current.    
+- **Construction:**    
+    - _Stator:_ Distributed three-phase AC stator windings.        
+    - _Rotor:_ Insulated three-phase star-connected wire windings matching the stator pole count.        
+    - _External Interface:_ Three copper or brass rings mounted to the shaft (slip rings) connected to the rotor windings, with stationary carbon brushes riding on them connected to external resistor banks.        
+- **Pros & Cons:**    
+    - _Pros:_ Unmatched starting torque for heavy industrial loads; highly controlled, progressive acceleration curves; lowered thermal strain on the main stator frame during startup.        
+    - _Cons:_ Mechanically complex and bulky; high installation cost; brushes and slip rings require periodic replacement and maintenance due to continuous friction.        
+- **Usages:** Heavy mine hoists, rock and ore crushers, industrial material cranes, large cement mixers, and high-capacity ball mills.    
+
+#### 6.7 Linear Motor
+- **Working Principle:** Functions effectively as a standard rotary motor sliced open and unrolled flat. Instead of producing angular torque, it projects a traveling magnetic field along a linear track. Alternating the phase currents within the track creates a linear magnetic wave that propels a magnetic carriage straight ahead.    
+- **Construction:**    
+    - _Track (Stator Equivalent):_ A continuous, flat runway embedded with a sequence of permanent magnets or alternating electromagnetic coils.        
+    - _Slider/Forcer (Rotor Equivalent):_ An active coil array carriage that glides over the track via low-friction linear bearings or magnetic levitation.        
+- **Pros & Cons:**    
+    - _Pros:_ Direct-drive performance completely eliminates the need for backlash-prone mechanical linkages (belts, lead screws, or gearboxes); near-infinite acceleration rates; nanometer-scale travel positioning precision.        
+    - _Cons:_ Extremely high financial cost per meter of track; high heat output requires active liquid cooling channels; strong magnetic fields pull in external ferrous workspace debris.        
+- **Usages:** Magnetic levitation (Maglev) trains, high-speed semiconductor wafer inspection tools, automated electronic pick-and-place systems, and theme park rollercoaster launch mechanisms.    
+
+#### 6.8 Permanent Magnet Synchronous Motor (PMSM)
+- **Working Principle:** A highly efficient synchronous AC machine. The stator features distributed windings fed with a three-phase sinusoidal AC supply, producing a perfectly smooth rotating magnetic field. The rotor’s permanent magnets lock onto this field instantly, spinning at the exact **synchronous speed** with zero rotational slip.    
+- **Construction:**    
+    - _Stator:_ Distributed windings configured to produce a clean, sinusoidal back-EMF voltage profile.        
+    - _Rotor:_ High-coercivity rare-earth permanent magnets either bonded to the surface (SPMSM) or buried deep inside the rotor laminations (IPMSM).        
+- **Pros & Cons:**    
+    - _Pros:_ Absolute maximum power density and efficiency; zero torque ripple for silent, smooth operation; exceptional power factor metrics.        
+    - _Cons:_ Dependent on advanced vector drive systems like **Field-Oriented Control (FOC)**; permanent magnets face irreversible demagnetization risks at extreme temperatures; costly raw material sourcing (Neodymium/Dysprosium).        
+- **Usages:** Electric vehicle traction drives (e.g., Tesla, Porsche), premium industrial servo systems, high-efficiency wind turbine generators, and premium variable-speed home heat pumps.    
+
+#### 6.9 Switched Reluctance Motor (SRM)
+- **Working Principle:** Operates on the electromagnetic principle of **variable magnetic reluctance**. Stator coil pairs are sequentially pulsed. The non-magnetic, un-coiled steel rotor features salient teeth that naturally rotate to align themselves with the active stator pole to minimize the path resistance (reluctance) of the magnetic flux loops.    
+- **Construction:**    
+    - _Stator:_ Salient steel poles wrapped with simple, concentrated copper spool coils.        
+    - _Rotor:_ A completely passive, profiled wheel made of stamped laminated steel teeth containing **no magnets, no wires, and no shorted bars**.        
+- **Pros & Cons:**    
+    - _Pros:_ Virtually indestructible rotor structure capable of surviving extreme RPMs and intense thermal environments; highly fault-tolerant (a shorted phase coil doesn't kill the motor); cost-effective to build.        
+    - _Cons:_ High torque ripple requires advanced pulsing software algorithms to dampen; generates a loud acoustic whine/vibration due to radical radial magnetic forces snapping the stator frame.        
+- **Usages:** Industrial mining equipment, ultra-high-speed household vacuums, heavy stamping presses, and harsh-environment defense actuators.    
+
+### 6.10 Engineering Selection Matrix
+
+|**Motor Type**|**Power Source**|**Commutation/Drive Type**|**Main Performance Metric**|**Core Operational Vulnerability**|
+|---|---|---|---|---|
+|**Brushed DC**|DC (Direct)|Mechanical Brushes|Simple Voltage Speed Scaling|Mechanical Brush Wear / Arc Fire|
+|**BLDC**|DC (via Inverter)|Electronic (Hall/ESC)|High Output RPM & Lifespan|Total Controller Dependency|
+|**Servo**|AC / DC|Closed-Loop Feedback|True Positional/Speed Accuracy|Loop Tuning Errors ("Hunting")|
+|**Stepper**|Pulsed DC|Open-Loop Step Trains|Stationary High Holding Torque|Untracked Step Skipping Risk|
+|**Squirrel Cage**|3-Phase AC|Asynchronous Line/VFD|Low-Cost Industrial Durability|High Inrush Amperage Spikes|
+|**Slip-Ring**|3-Phase AC|Rotor Resistance Step|Extreme Heavy Starting Torque|High Mechanical Complexity|
+|**Linear**|AC / Pulsed|Direct Linear Drive|Velocity & Nanometer Precision|Low Thermal Heat Dissipation|
+|**PMSM**|3-Phase AC|Field-Oriented Control|Maximum Efficiency & Smoothness|High Heat Demagnetization|
+|**SRM**|Pulsed DC|Reluctance Switching|Failsafe High-Speed Ruggedness|High Acoustic Vibrational Noise|
+
+##  Compression and Spark Ignition Engines
+
+### CI and SI Engines: A Detailed Comparison
+
+CI (Compression Ignition) and SI (Spark Ignition) engines are the two fundamental combustion systems used in internal combustion engines.
+
+The distinction is not about the fuel itself, but about **how combustion is initiated**.
+
+- **SI Engine:** Air-fuel mixture is ignited by a spark plug.
+- **CI Engine:** Fuel ignites automatically due to high temperature generated by compressing air.
+
+Most gasoline engines are SI engines, while most diesel engines are CI engines.
+
+---
+
+# Historical Context
+
+The SI engine originates from the work of Nikolaus Otto and is often called the **Otto engine**.
+
+The CI engine was developed by Rudolf Diesel and is often called the **Diesel engine**.
+
+Both use the same fundamental idea:
+
+1. Draw air into a cylinder.
+2. Compress it.
+3. Burn fuel.
+4. Convert expanding gas pressure into mechanical work.
+
+The major difference lies in **mixture preparation and ignition**.
+
+---
+
+# SI Engine (Spark Ignition Engine)
+
+## Principle
+
+A premixed air-fuel charge is compressed and ignited by a spark plug.
+
+### Typical Fuels
+
+- Gasoline (Petrol)
+- Ethanol blends
+- Methanol
+- CNG
+- LPG
+- Hydrogen (in some designs)
+
+---
+
+## Four-Stroke SI Cycle
+
+### 1. Intake Stroke
+
+The piston moves downward.
+
+The intake valve opens.
+
+Air and fuel enter the cylinder.
+
+```text
+Fuel + Air --> Cylinder
+```
+
+Typical stoichiometric air-fuel ratio for gasoline:
+
+```text
+14.7 : 1
+```
+
+---
+
+### 2. Compression Stroke
+
+Both valves close.
+
+The piston moves upward.
+
+The air-fuel mixture is compressed.
+
+Typical compression ratio:
+
+```text
+8:1 to 12:1
+```
+
+Modern direct-injection gasoline engines may use:
+
+```text
+13:1 to 14:1
+```
+
+Compression increases:
+
+- Pressure
+- Temperature
+- Density
+
+---
+
+### 3. Power Stroke
+
+Near TDC (Top Dead Center), the spark plug fires.
+
+The flame kernel develops and propagates throughout the combustion chamber.
+
+Combustion is not instantaneous.
+
+A flame front travels across the chamber:
+
+```text
+Spark
+  |
+  V
+Flame Front ---> Chamber
+```
+
+The resulting pressure rise pushes the piston downward.
+
+This is the only stroke that produces useful work.
+
+---
+
+### 4. Exhaust Stroke
+
+The exhaust valve opens.
+
+The piston moves upward.
+
+Burned gases leave the cylinder.
+
+The cycle repeats.
+
+---
+
+# Otto Cycle
+
+The idealized SI engine follows the Otto Cycle.
+
+Thermal efficiency:
+
+\[
+\eta_{Otto}=1-\frac{1}{r^{\gamma-1}}
+\]
+
+Where:
+
+- \( \eta \) = Thermal efficiency
+- \( r \) = Compression ratio
+- \( \gamma \) = Ratio of specific heats
+
+Higher compression ratios improve efficiency.
+
+---
+
+# SI Combustion Process
+
+## Flame Propagation Combustion
+
+The spark initiates a flame kernel.
+
+Combustion progresses through the chamber in stages:
+
+1. Ignition delay
+2. Flame development
+3. Flame propagation
+4. After-burning
+
+Flame speed strongly influences:
+
+- Power output
+- Efficiency
+- Knock tendency
+
+---
+
+## Knock in SI Engines
+
+Knock occurs when the unburned end-gas autoignites before the flame front reaches it.
+
+### Normal Combustion
+
+```text
+Flame --> Smooth Pressure Rise
+```
+
+### Knock
+
+```text
+Multiple Explosions --> Pressure Waves
+```
+
+Effects:
+
+- Noise
+- Vibration
+- Power loss
+- Potential engine damage
+
+---
+
+## Octane Number
+
+Octane number measures resistance to knock.
+
+Typical gasoline ratings:
+
+- Regular: ~87 AKI
+- Premium: ~91–93 AKI
+
+Higher octane fuel allows:
+
+- Higher compression ratios
+- Higher boost pressures
+- Reduced knock tendency
+
+---
+
+# SI Fuel Systems
+
+## Carburetor
+
+Older technology.
+
+Fuel is drawn into airflow through pressure differences.
+
+Advantages:
+
+- Simple
+- Inexpensive
+
+Disadvantages:
+
+- Poor mixture control
+- Higher emissions
+
+---
+
+## Port Fuel Injection (PFI)
+
+Fuel is injected into the intake port.
+
+Advantages:
+
+- Better emissions
+- Improved fuel economy
+- Better control
+
+---
+
+## Gasoline Direct Injection (GDI)
+
+Fuel is injected directly into the cylinder.
+
+Advantages:
+
+- Improved atomization
+- Higher compression ratio capability
+- Better efficiency
+- Better power density
+
+---
+
+# SI Engine Characteristics
+
+## Advantages
+
+### High-Speed Capability
+
+Typical operating speeds:
+
+```text
+6000–9000 RPM
+```
+
+Motorcycle engines can exceed:
+
+```text
+12000 RPM
+```
+
+### Smooth Operation
+
+- Progressive combustion
+- Lower combustion pressures
+- Less vibration
+
+### High Power-to-Weight Ratio
+
+- Lightweight construction
+- Smaller engine block
+
+### Fast Acceleration
+
+- Lower reciprocating mass
+- Responsive throttle behavior
+
+---
+
+## Limitations
+
+### Lower Thermal Efficiency
+
+Typical brake thermal efficiency:
+
+```text
+25% – 40%
+```
+
+### Throttling Losses
+
+Power is controlled by restricting airflow.
+
+This causes pumping losses during part-load operation.
+
+### Knock Limitations
+
+Compression ratio is limited by knock resistance.
+
+---
+
+# CI Engine (Compression Ignition Engine)
+
+## Principle
+
+Only air is compressed.
+
+Compression raises air temperature enough to ignite fuel automatically.
+
+No spark plug is required.
+
+Typical fuel:
+
+- Diesel
+
+---
+
+# Four-Stroke CI Cycle
+
+## 1. Intake Stroke
+
+Only air enters the cylinder.
+
+No fuel is present.
+
+---
+
+## 2. Compression Stroke
+
+The piston compresses only air.
+
+Typical compression ratio:
+
+```text
+14:1 to 24:1
+```
+
+Air temperature near TDC often reaches:
+
+```text
+600°C – 900°C
+```
+
+---
+
+## 3. Fuel Injection
+
+Near TDC, diesel fuel is injected at extremely high pressure.
+
+Modern systems operate at:
+
+```text
+1500 – 3000+ bar
+```
+
+---
+
+## 4. Auto-Ignition
+
+Injected fuel:
+
+- Atomizes
+- Vaporizes
+- Mixes with hot air
+
+When conditions are suitable, ignition occurs automatically.
+
+---
+
+## 5. Power Stroke
+
+Combustion continues while fuel is still being injected.
+
+The expanding gases drive the piston downward.
+
+---
+
+## 6. Exhaust Stroke
+
+Burned gases are expelled.
+
+The cycle repeats.
+
+---
+
+# Diesel Cycle
+
+The idealized CI engine follows the Diesel Cycle.
+
+Thermal efficiency:
+
+\[
+\eta_{Diesel}=1-\frac{1}{r^{\gamma-1}}
+\cdot
+\frac{\rho^{\gamma}-1}
+{\gamma(\rho-1)}
+\]
+
+Where:
+
+- \( r \) = Compression ratio
+- \( \rho \) = Cutoff ratio
+
+Although the ideal Otto cycle is more efficient at identical compression ratios, real diesel engines typically operate at much higher compression ratios, making them more efficient in practice.
+
+---
+
+# CI Combustion Phases
+
+Diesel combustion occurs in four phases.
+
+## 1. Ignition Delay
+
+Fuel is injected but combustion has not yet started.
+
+Processes occurring:
+
+- Atomization
+- Vaporization
+- Air-fuel mixing
+
+---
+
+## 2. Premixed Combustion
+
+The accumulated fuel ignites rapidly.
+
+This creates a sharp pressure rise.
+
+---
+
+## 3. Mixing-Controlled Combustion
+
+Fuel continues to be injected.
+
+Combustion rate depends on mixing quality.
+
+---
+
+## 4. Late Combustion
+
+Remaining fuel finishes burning.
+
+---
+
+# Cetane Number
+
+Cetane number measures a fuel's willingness to autoignite.
+
+Higher cetane values provide:
+
+- Shorter ignition delay
+- Smoother combustion
+- Easier cold starting
+
+---
+
+# Importance of Fuel Injection
+
+Diesel engine performance depends heavily on fuel injection quality.
+
+Important factors:
+
+- Droplet size
+- Spray angle
+- Penetration depth
+- Injection timing
+- Injection pressure
+
+Modern common-rail systems support:
+
+- Pilot injection
+- Main injection
+- Post injection
+
+Benefits:
+
+- Reduced noise
+- Improved emissions
+- Better efficiency
+
+---
+
+# CI Engine Characteristics
+
+## Advantages
+
+### High Efficiency
+
+Typical brake thermal efficiency:
+
+```text
+35% – 50%
+```
+
+Large marine diesel engines can exceed:
+
+```text
+50%
+```
+
+### High Torque
+
+Benefits arise from:
+
+- Higher cylinder pressure
+- Longer combustion duration
+- Higher mean effective pressure
+
+### No Significant Throttling Losses
+
+Power is primarily controlled by fuel quantity.
+
+This improves part-load efficiency.
+
+### Long Service Life
+
+Stronger construction leads to:
+
+- Better durability
+- Longer operating life
+
+---
+
+## Limitations
+
+### Heavier Construction
+
+Required to withstand:
+
+- Higher combustion pressure
+- Greater mechanical loads
+
+### Lower Maximum RPM
+
+Typical range:
+
+```text
+1500 – 5000 RPM
+```
+
+### More Vibration
+
+Caused by:
+
+- Rapid pressure rise
+- Larger combustion forces
+
+### More Expensive Fuel System
+
+Requires:
+
+- High-pressure pumps
+- Precision injectors
+- Sophisticated controls
+
+---
+
+# Side-by-Side Comparison
+
+| Parameter | SI Engine | CI Engine |
+|------------|------------|------------|
+| Ignition Method | Spark Plug | Self-Ignition |
+| Typical Fuel | Gasoline, CNG, LPG | Diesel |
+| Compression Ratio | 8–14 | 14–24 |
+| Mixture Preparation | Premixed Air-Fuel | Fuel Injected into Hot Air |
+| Efficiency | Lower | Higher |
+| Torque Output | Moderate | High |
+| Maximum RPM | High | Lower |
+| Weight | Lower | Higher |
+| Cost | Lower | Higher |
+| Knock Concern | Major Issue | Diesel Knock |
+| Fuel Economy | Lower | Better |
+| Main Emission Challenge | CO, HC | NOx, Soot |
+
+---
+
+# Why Diesel Engines Produce More Torque
+
+Major reasons:
+
+1. Higher cylinder pressures
+2. Longer effective combustion duration
+3. Typically longer stroke designs
+
+Diesel engines generally achieve higher Mean Effective Pressure (MEP), resulting in greater crankshaft torque.
+
+---
+
+# Modern Hybrid Combustion Concepts
+
+## Homogeneous Charge Compression Ignition (HCCI)
+
+Combines:
+
+- Premixed charge (SI characteristic)
+- Compression ignition (CI characteristic)
+
+Potential benefits:
+
+- Very high efficiency
+- Low emissions
+
+---
+
+## Reactivity Controlled Compression Ignition (RCCI)
+
+Uses two fuels with different ignition characteristics.
+
+Advantages:
+
+- High efficiency
+- Very low emissions
+
+---
+
+## Gasoline Compression Ignition (GCI)
+
+Attempts to achieve diesel-like efficiency using gasoline fuel.
+
+Still an active area of development.
+
+---
+
+# Fundamental Difference
+
+The deepest distinction between the two engine types is:
+
+**SI engines control combustion by deciding when to create a spark.**
+
+**CI engines control combustion by controlling fuel injection into highly compressed hot air, allowing the fuel to ignite itself.**
+
+Everything else—compression ratio, fuel type, torque characteristics, efficiency, emissions behavior, and engine design—follows from this fundamental difference.
