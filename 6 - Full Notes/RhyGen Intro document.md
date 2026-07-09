@@ -17,15 +17,9 @@ Accounting for real-world efficiencies, an internal combustion engine is only ab
 https://auto.howstuffworks.com/auto-parts/brakes/brake-types/regenerative-braking.htm
 text from alt source - 
 
-Hybrid and electric cars make some of their own energy through a process called regenerative braking, in which a car's electric motors switch polarity and act as a generator when the driver applies the brake pedal or releases throttle pressure.
+Hybrid and electric cars make some of their own energy through a process called regenerative braking, in which a car's electric motors switch polarity and act as a generator when the driver applies the brake pedal or releases throttle pressure. Conventional cars and trucks don't have the big batteries and electric motors found in hybrid cars, but engineers recently have figured out several ways to use a vehicle's braking energy to cut fuel consumption. In this case, regenerative braking systems turn the vehicle's alternator into a generator when the driver applies the brakes or lifts the throttle. They use the electricity the alternator makes to recharge the 12-volt battery or, in some cases, to charge a capacitor, which is a storage device that can hold power and release it very quickly.
 
-Conventional cars and trucks don't have the big batteries and electric motors found in hybrid cars, but engineers recently have figured out several ways to use a vehicle's braking energy to cut fuel consumption.
-  
-In this case, regenerative braking systems turn the vehicle's alternator into a generator when the driver applies the brakes or lifts the throttle. They use the electricity the alternator makes to recharge the 12-volt battery or, in some cases, to charge a capacitor, which is a storage device that can hold power and release it very quickly.
-
-Hybrids and EVs use power from their regenerative braking systems to run their electric motors. Conventional cars and trucks use them to power greedy onboard electronics, including headlamps, taillights, interior lights, the instrument panel and the audio and infotainment systems.
-
-It can take up to 10 horsepower to run an alternator off a car's engine, so the use of a regenerative braking system that reduces or eliminates that parasitic drain can boost fuel efficiency by 5 percent or more.
+Hybrids and EVs use power from their regenerative braking systems to run their electric motors. Conventional cars and trucks use them to power greedy onboard electronics, including headlamps, taillights, interior lights, the instrument panel and the audio and infotainment systems. It can take up to 10 horsepower to run an alternator off a car's engine, so the use of a regenerative braking system that reduces or eliminates that parasitic drain can boost fuel efficiency by 5 percent or more.
 
 **** How this actually works***
 ­In a trad. braking system, [brake pads](https://auto.howstuffworks.com/auto-parts/brakes/brake-parts/brake-pads.htm) produce friction with the [brake rotors](https://auto.howstuffworks.com/auto-parts/brakes/brake-parts/brake-rotors.htm) to slow or stop the vehicle. Additional friction is produced between the slowed wheels and the surface of the road. This friction is what turns the car's kinetic energy into heat. With regenerative brakes, on the other hand, the system that drives the vehicle does the majority of the braking. When the driver steps on the brake pedal of an electric or hybrid vehicle, these types of brakes put the vehicle's electric motor into reverse mode, causing it to run backwards, thus slowing the car's wheels. 
@@ -163,9 +157,7 @@ A particularly important point is that hybrids are most effective in **urban dri
 ![[Pasted image 20260608174508.png]]
 
 
-The ICE and the Motor gen (MG) are both connected to the vehicle, meaning they can both supply power to the drive shaft at the same time. The MG is used to shift the engine operating point to a higher efficiency area. It works as a generator for the battery when the power demands are low and as a additional motor when the demands spike up. 
-
-This essentially acts an increment to the existing power config. There are 5 further sub-configs for this - 
+The ICE and the Motor gen (MG) are both connected to the vehicle, meaning they can both supply power to the drive shaft at the same time. The MG is used to shift the engine operating point to a higher efficiency area. It works as a generator for the battery when the power demands are low and as a additional motor when the demands spike up.  This essentially acts an increment to the existing power config. There are 5 further sub-configs for this - 
 ![[Pasted image 20260608175005.png]]
 
 Subtype P0 refers to the configuration in which a motor is installed before the ICE and is connected to ICE by a belt. Therefore, it is also known as a belt-driven starter/generator HEV. Owing to the torque limitation of the belt, the starter/generator is always small and can fulfill only the start–stop function.
