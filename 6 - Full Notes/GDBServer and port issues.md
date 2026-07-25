@@ -1,5 +1,7 @@
 [[Twitter Posting]]
 
+[[Blog Topics]]
+
 So, I was working at my office early in the morning. We work on STM32 boards, and while I was trying to flash my code to the board that we have, I got hit by the following error - 
 
 ```

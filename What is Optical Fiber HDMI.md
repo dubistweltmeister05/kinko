@@ -1,4 +1,5 @@
 [[Twitter Posting]]
+[[Blog Topics]]
 
 High Definition Multimedia interface, or better known as HDMI, is the de-facto method of transmitting video and audio signal between 2 devices in the modern age. You find this tech in all devices these days, from laptops, to monitors, to projectors, all the way till big TV sets. In this blog, we shall take a look at the way this protocol functions, and how a simple change in the medium of transmission of signals leads to a significant reduction in the cost involved. 
 
