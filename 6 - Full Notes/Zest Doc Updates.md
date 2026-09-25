@@ -18,3 +18,11 @@ Have now added with the basic warranty clause that we have now added. *
 - once a board is working and deployed, we can cover for x (2) months, but not covered accidental, water, wiring mistakes, separate component connection causing board to fail. If this happens, we will be willing to manufacture a new board for xxxx price. If the claim is proven to be genuine, we can remake the board for no additional cost to the client. 
 
 *IDK what warranty should we promise them.*
+
+**Technical**
+1. Acknowledged, we shall design our boards to accept 0-60V signal measurements from the sensors on the system. 
+2. Acknowledged, and confirmed - we shall support for the first 20 systems. 
+**Commercial**
+3. This is agreeable for us as well.
+4. A definition for what comprises within a System, and clarification about the baseline mentioned in section 5.10 has been added to the commercial proposal.
+5. We can hold the quoted price for the first 20 systems to be delivered. 

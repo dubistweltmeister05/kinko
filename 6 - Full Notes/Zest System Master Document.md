@@ -1,3 +1,4 @@
+[[RhyGen]]
 # Feeder Design
 
 ## H2 Feeder    
@@ -26,7 +27,9 @@ The Inputs that are to be received on this board are from the sensors that shall
 ## 4G connectivity
 We have chosen Quectel's EC-200N to be integrated with the Logger for providing 4G connectivity. Easy availability of the module was among the prime reasons for this to be our module of choice, along with a ready-to-use module based around this chip being plenty in stock on ROBU. 
 
-The primary use case would be to send snapshots of the data that is being collected via the CAN bus that ties the feeder boards and the logger. These snapshot logs shall be periodic in their nature, ideally being sent once every 10 seconds or so. This shall act as a heartbeat of sorts for us, providing enough remote information about the system for us to ensure that things are working as expected. 
+The primary use case would be to send snapshots of the data that is being collected via the CAN bus that ties the feeder boards and the logger. These snapshot logs shall be periodic in their nature, ideally being sent once every 10 seconds or so. 
+ASSUMPTION - Sending logs every 1 second hall be too heavy on the bw
+This shall act as a heartbeat of sorts for us, providing enough remote information about the system for us to ensure that things are working as expected. 
 
 An SMS feature to update the MQTT parameters would be another function that gets integrated. A set format that shall be hardcoded into the firmware, shall parse an incoming SMS onto the module, and update the MQTT settings that have been set in place for the Connection, and re-establish the connection. There also needs to be a fall-back for this, should the update fail or should the connection to the broker fail to be re-established. 
 
