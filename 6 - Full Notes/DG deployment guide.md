@@ -9,8 +9,9 @@ The MFM has an RS485 connector, that is demarcated with a + and - label on it's 
 
 # Placement
 ## MFM placement
-
+This shall mostly be at the ATS of the Factory, and needs to be in close proximity with the CTs being placed. 
 ## CT Placement
+These need to be mounted to
 ## Logger Placement
 
 

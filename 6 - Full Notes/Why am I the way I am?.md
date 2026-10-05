@@ -10,25 +10,19 @@ I want to implement TLS over MQTT connections and send binary log files to a rem
 
 I get to work on fine-tuning a PID control loop for a three-phase BLDC motor, but I also want to design and construct a PMSM.
 
-I want to understand Linux scheduling, but also want to know how to design the gate-drive circuitry that makes a MOSFET switch.
+I want to understand how the hell does Linux schedule all them processes and tasks, but also want to know how to design the gate-drive circuitry that makes a MOSFET switch.
 
 I want to write a UART driver from the damn reference manual of an SoC, but also want to understand why transformer leakage inductance matters when choosing a power-converter topology.
 
 I want to implement DMA-backed SPI transfers for a cool-ass HMI display, but then I find myself reading about magnetic materials because apparently I also need to understand how the inductor sitting in the power stage was designed to be at the exact inductance that it is at.
 
-I want to understand TCP congestion control, but I also want to design the current loop underneath a three-phase inverter.
+I wish to understand MMUs, page tables and virtual memory, and then immediately start calculating switching losses in an IGBT at 20 kHz.
 
-I want to write a J1939 interface script, while simultaneously wondering why the DC-link capacitor is sized the way it is.
+I want to understand the ways of controlling FreeRTOS scheduling, while also trying to figure out whether my current-control sampling frequency is actually sufficient for the dynamics of the plant.
 
-I want to understand MMUs, page tables and virtual memory, and then immediately start calculating switching losses in an IGBT at 20 kHz.
+I want to write a QSPI NOR driver with brownout mitigation and bulk transfer support , but then I end up reading about core losses in magnetic materials and their behavior variation with heat and temp.
 
-I want to implement a flash translation layer, but then I get distracted by how GaN transistors change the practical limits of high-frequency power conversion.
-
-I want to understand FreeRTOS scheduling, while also trying to figure out whether my current-control sampling frequency is actually sufficient for the dynamics of the plant.
-
-I want to write a QSPI NOR driver with wear management, but then I end up reading about core losses in magnetic materials.
-
-I want to understand Ethernet PHY initialization, but also want to know why the hell the common-mode choke is sitting exactly where it is.
+I want to understand Ethernet PHY initialization, the packet header that gets slapped onto each transmission , but also want to know why the hell the common-mode choke is sitting exactly where it is.
 
 I want to implement Modbus RTU, and then spend an evening learning about RS-485 termination and biasing because apparently "it communicates" isn't a sufficient explanation anymore.
 
