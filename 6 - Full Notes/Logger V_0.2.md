@@ -42,13 +42,10 @@ Because the F446 will handle both memories over separate hardware peripherals, t
 ## SIM Cards and Connection Plans
 M-2-M SIM cards should be used for this, along with relevant data plans.  
 ## SMS Interaction with the logger
-The MQTT parameters should be made configurable, with the user having the ability of sending an SMS with a particular format and the MCU reconfiguring the MQTT params internally, closing the old connection, and opening a new connection with the fresh params that have been sent by the user.  
+The MQTT parameters should be made configurable, with the user having the ability of sending an SMS with a particular format and the MCU reconfiguring the MQTT parameters internally, closing the old connection, and opening a new connection with the fresh parameters that have been sent by the user.  
 ## MQTT Publishing Architecture
-
-### Which Broker and Server to use? 
 Ideally, we shouldn't use Mosquito. The AWS server that we have, can be configured to use run an MQTT server, and receive input data as a JSON string from the logger that we have? 
 ## Log Collection and Analysis
 Publish once every 5 seconds? And the server that we are using, should be running some script, where each string that it receives, should be saved to a file. A python script can be run that plots these points that are saved in the file in real time as well. We can have another script to download these files for local storage.  
-
-## 15 second switchover delay
+## 15 second switch-over delay
 When the mains power is cut and the DG power is being connected to, there is usually a 15-30 second delay for this operation to happen. In this case, we should handle the firmware to not "Freak out" when it is not getting some data for a min window of 30 seconds. 
