@@ -182,34 +182,93 @@ And if we have a timeout of over 3seconds, we are checking if the modem is still
 ## SMS_Setup
 
 ```C
-case EC200_SMS_Setup:
+  case EC200_SMS_Setup:
     if (dev->cmd_ack) {
       if (dev->sms_setup_step == 0 && dev->cmd_ok) {
         printf("\r\n[FSM] Config_CMGF -> Wiping SIM Memory (CMGD=1,4)\r\n");
-        send_at(dev, "AT+CMGD=1,4\r\n");
+        send_at(dev, "AT+CMGD=1,4\r\n");  // Deletes all internal SIM card messages
         dev->sms_setup_step = 1;
         dev->state_timer = now_ms;
       } else if (dev->sms_setup_step == 1) {
         printf("\r\n[FSM] Memory Cleared -> Routing SMS to UART "
                "(CNMI=2,2,0,0,0)\r\n");
-        send_at(dev, "AT+CNMI=2,2,0,0,0\r\n");
+        send_at(dev, "AT+CNMI=2,2,0,0,0\r\n"); // Network manager interface, which routes the incoming SMS to the MCU's UART Console
         dev->sms_setup_step = 2;
         dev->state_timer = now_ms;
       } else if (dev->sms_setup_step == 2 && dev->cmd_ok) {
-        printf("\r\n[FSM] SMS Ready! Transitioning to Data APN.\r\n");
+        printf("\r\n[FSM] SMS Ready! Cleaning up stale network state.\r\n");
+        enter_net_cleanup(dev, now_ms);
+      }
+    } else if (now_ms - dev->state_timer > 5000) {
+      if (dev->sms_setup_step == 0)
+        send_at(dev, "AT+CMGF=1\r\n"); //NW_Reg
+      else if (dev->sms_setup_step == 1)
+        send_at(dev, "AT+CMGD=1,4\r\n"); //Delete all SMS
+      else if (dev->sms_setup_step == 2)
+        send_at(dev, "AT+CNMI=2,2,0,0,0\r\n"); //Re-set the SMS routing to the MCU UART.
+      dev->state_timer = now_ms;
+    }
+    break;
+```
+
+This is to setup the parameters of the module that helps take care of the SMS interface that we have planned for our logger. Basically, we first delete any old SMS messages that have been left unhandled on the 4G SIM card, and then tell the module which way is the SMS supposed to be routed via "AT+CNMI".  Once all that is done, we call the network cleanup helper, which basically closes any old MQTT connections that are now essentially dead, via the "AT+QMTCLOSE" command, and forcing the fsm into the Net_Cleanup State. 
+## Net_Cleanup 
+
+```C 
+case EC200_Net_Cleanup:
+    // Entered via enter_net_cleanup(), which has already sent QMTCLOSE.
+    // Note: We ignore dev->cmd_ok here. If the socket/PDP context is already
+    // closed, the modem returns ERROR. We don't care, we just want to ensure
+    // it's closed. A timeout is treated the same way - move on regardless.
+    if (dev->cleanup_step == 0) {
+      // QMTCLOSE: OK/ERROR is quick, 5s is plenty
+      if (dev->cmd_ack || now_ms - dev->state_timer > 5000) {
+        printf("\r\n[FSM] Net_Cleanup -> Deactivating old PDP context "
+               "(QIDEACT=1)\r\n");
+        send_at(dev, "AT+QIDEACT=1\r\n");
+        dev->cleanup_step = 1;
+        dev->state_timer = now_ms;
+      }
+    } else {
+      // QIDEACT: modem may take up to 40s to respond
+      if (dev->cmd_ack || now_ms - dev->state_timer > 40000) {
+        printf("\r\n[FSM] Cleanup Complete! Transitioning to Data APN.\r\n");
+        // Closing the socket ourselves must not look like a link drop
+        dev->mqtt_link_lost = false;
         dev->fsm_state = EC200_DataAPN;
         dev->state_timer = now_ms;
         // Seed the ACK so DataAPN immediately evaluates
         dev->cmd_ack = true;
         dev->cmd_ok = true;
       }
-    } else if (now_ms - dev->state_timer > 5000) {
-      if (dev->sms_setup_step == 0)
-        send_at(dev, "AT+CMGF=1\r\n");
-      else if (dev->sms_setup_step == 1)
-        send_at(dev, "AT+CMGD=1,4\r\n");
-      else if (dev->sms_setup_step == 2)
-        send_at(dev, "AT+CNMI=2,2,0,0,0\r\n");
-      dev->state_timer = now_ms;
     }
+    break;
 ```
+
+Here, we take care of closing any and every connection that may or may not have been left idle before we move on to the MQTT side of things.  Now that the cleanup and closing of old connections is now done, we can go for initiating the PDP and eventually sending data.
+
+## DataAPN
+```C
+  case EC200_DataAPN:
+    if (dev->cmd_ack && dev->cmd_ok) {
+      printf("\r\n[FSM] Configuring APN Context "
+             "(QICSGP=1,1,\"airtelgprs.com\",\"\",\"\",0)\r\n");
+      dev->status = EC200_STATUS_INITIALIZING;
+      send_at(dev, "AT+QICSGP=1,1,\"airtelgprs.com\",\"\",\"\",0\r\n"); 
+      //Command to send over the connection details that are needed for communicating with the wireless interwebs.
+      dev->state_timer = now_ms;
+      dev->fsm_state = EC200_Init_PDP;
+    } else if (dev->cmd_ack && !dev->cmd_ok) {
+      // Catch QIDEACT errors from the Init_PDP failure fallback
+      printf(
+          "\r\n[FSM ERROR] Setup Rejected. Restarting Network Checks...\r\n");
+      dev->fsm_state = EC200_NW_Reg;
+    } else if (now_ms - dev->state_timer > 3000) {
+      printf("\r\n[FSM ERROR] Data APN Setup Timeout.\r\n");
+      dev->fsm_state = EC200_NW_Reg;
+    }
+    break;
+```
+
+Basically, if the previous command has been acked and okayed, we send over details with whatever is needed for connecting to the network / data. The string that is being sent, has the following data - `AT+QICSGP=<contextID>,<context_type>,"<APN>","<username>","<password>",<authentication>` .  And of course, if this doesn't break or times out, we gotta go back to the [Network registration part of the FSM](#nw_reg) state. Why? It was indeed unnecessary. 
+
