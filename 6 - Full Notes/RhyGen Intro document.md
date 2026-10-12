@@ -194,6 +194,7 @@ Input-Split (the most widely used one)
 ![[Pasted image 20260608180631.png]]
 https://www.mathworks.com/help/autoblks/ug/explore-the-hybrid-electric-vehicle-input-power-split-reference-application.html
 
+<<<<<<< Updated upstream
 ## 4. Types of hybrid architectures
 
 ### 4.1 Electric Hybrids (HEVs)
@@ -786,3 +787,144 @@ Before modern ignition systems, spark timing was controlled by a mechanical dist
 
 Modern ECUs replace the distributor entirely. Using crankshaft and camshaft position sensors, the ECU determines the exact position of every piston and commands the ignition coils directly. This allows ignition timing to be adjusted dynamically based on engine speed, load, temperature, fuel quality, knock detection, emissions requirements, and numerous other parameters.
 In many ways, the ECU can be viewed as the electronic successor to both the carburetor and the distributor. It performs the same fundamental tasks of controlling fuel delivery and ignition timing, but does so with vastly greater precision, flexibility, and adaptability.
+=======
+## 5. How do batteries work
+Source : https://electronics.howstuffworks.com/everyday-tech/battery.htm
+
+Some terms about batteries from "A Guide to Understanding Battery Specifications"
+
+MIT Electric Vehicle Team, December 2008
+
+A battery is a device that converts chemical energy into electrical energy and vice versa. This
+summary provides an introduction to the terminology used to describe, classify, and compare
+batteries for hybrid, plug-in hybrid, and electric vehicles. It provides a basic background, defines
+the variables used to characterize battery operating conditions, and describes the manufacturer
+specifications used to characterize battery nominal and maximum characteristics.
+
+## Battery Basics
+
+• Cell, modules, and packs – Hybrid and electric vehicles have a high voltage battery
+pack that consists of individual modules and cells organized in series and parallel. A cell is
+the smallest, packaged form a battery can take and is generally on the order of one to six
+volts. A module consists of several cells generally connected in either series or parallel. A
+battery pack is then assembled by connecting modules together, again either in series or
+parallel.
+
+• Battery Classifications – Not all batteries are created equal, even batteries of the same
+chemistry. The main trade-off in battery development is between power and energy:
+batteries can be either high-power or high-energy, but not both. Often manufacturers will
+classify batteries using these categories. Other common classifications are High Durability,
+meaning that the chemistry has been modified to provide higher battery life at the expense
+of power and energy.
+
+• C- and E- rates – In describing batteries, discharge current is often expressed as a C-rate
+in order to normalize against battery capacity, which is often very different between
+batteries. A C-rate is a measure of the rate at which a battery is discharged relative to its
+maximum capacity. A 1C rate means that the discharge current will discharge the entire
+battery in 1 hour. For a battery with a capacity of 100 Amp-hrs, this equates to a discharge
+current of 100 Amps. A 5C rate for this battery would be 500 Amps, and a C/2 rate would
+be 50 Amps. Similarly, an E-rate describes the discharge power. A 1E rate is the discharge
+power to discharge the entire battery in 1 hour.
+
+• Secondary and Primary Cells – Although it may not sound like it, batteries for hybrid,
+plug-in, and electric vehicles are all secondary batteries. A primary battery is one that can
+not be recharged. A secondary battery is one that is rechargeable.
+
+## Battery Condition
+
+This section describes some of the variables used to describe the present condition of a battery.
+
+• State of Charge (SOC)(%) – An expression of the present battery capacity as a
+percentage of maximum capacity. SOC is generally calculated using current integration to
+determine the change in battery capacity over time.
+
+• Depth of Discharge (DOD) (%) – The percentage of battery capacity that has been
+discharged expressed as a percentage of maximum capacity. A discharge to at least 80 %
+DOD is referred to as a deep discharge.
+
+• Terminal Voltage (V) – The voltage between the battery terminals with load applied.
+Terminal voltage varies with SOC and discharge/charge current.
+
+• Open-circuit voltage (V) – The voltage between the battery terminals with no load
+applied. The open-circuit voltage depends on the battery state of charge, increasing with
+state of charge.
+
+• Internal Resistance – The resistance within the battery, generally different for charging
+and discharging, also dependent on the battery state of charge. As internal resistance
+increases, the battery efficiency decreases and thermal stability is reduced as more of the
+charging energy is converted into heat.
+
+## Battery Technical Specifications
+
+This section explains the specifications you may see on battery technical specification sheets
+used to describe battery cells, modules, and packs.
+
+• Nominal Voltage (V) – The reported or reference voltage of the battery, also sometimes
+thought of as the “normal” voltage of the battery.
+
+• Cut-off Voltage – The minimum allowable voltage. It is this voltage that generally
+defines the “empty” state of the battery.
+
+• Capacity or Nominal Capacity (Ah for a specific C-rate) – The coulometric
+capacity, the total Amp-hours available when the battery is discharged at a certain
+discharge current (specified as a C-rate) from 100 percent state-of-charge to the cut-off
+voltage. Capacity is calculated by multiplying the discharge current (in Amps) by the
+discharge time (in hours) and decreases with increasing C-rate.
+
+• Energy or Nominal Energy (Wh (for a specific C-rate)) – The “energy capacity” of
+the battery, the total Watt-hours available when the battery is discharged at a certain
+discharge current (specified as a C-rate) from 100 percent state-of-charge to the cut-off
+voltage. Energy is calculated by multiplying the discharge power (in Watts) by the
+discharge time (in hours). Like capacity, energy decreases with increasing C-rate.
+
+• Cycle Life (number for a specific DOD) – The number of discharge-charge cycles the
+battery can experience before it fails to meet specific performance criteria. Cycle life is
+estimated for specific charge and discharge conditions. The actual operating life of the
+battery is affected by the rate and depth of cycles and by other conditions such as
+temperature and humidity. The higher the DOD, the lower the cycle life.
+
+• Specific Energy (Wh/kg) – The nominal battery energy per unit mass, sometimes
+referred to as the gravimetric energy density. Specific energy is a characteristic of the
+battery chemistry and packaging. Along with the energy consumption of the vehicle, it
+determines the battery weight required to achieve a given electric range.
+
+• Specific Power (W/kg) – The maximum available power per unit mass. Specific power
+is a characteristic of the battery chemistry and packaging. It determines the battery weight
+required to achieve a given performance target.
+
+• Energy Density (Wh/L) – The nominal battery energy per unit volume, sometimes
+referred to as the volumetric energy density. Specific energy is a characteristic of the
+battery chemistry and packaging. Along with the energy consumption of the vehicle, it
+determines the battery size required to achieve a given electric range.
+
+• Power Density (W/L) – The maximum available power per unit volume. Specific power
+is a characteristic of the battery chemistry and packaging. It determines the battery size
+required to achieve a given performance target.
+
+• Maximum Continuous Discharge Current – The maximum current at which the
+battery can be discharged continuously. This limit is usually defined by the battery
+manufacturer in order to prevent excessive discharge rates that would damage the battery or
+reduce its capacity. Along with the maximum continuous power of the motor, this defines
+the top sustainable speed and acceleration of the vehicle.
+
+• Maximum 30-sec Discharge Pulse Current –The maximum current at which the
+battery can be discharged for pulses of up to 30 seconds. This limit is usually defined by
+the battery manufacturer in order to prevent excessive discharge rates that would damage
+the battery or reduce its capacity. Along with the peak power of the electric motor, this
+defines the acceleration performance (0-60 mph time) of the vehicle.
+
+• Charge Voltage – The voltage that the battery is charged to when charged to full
+capacity. Charging schemes generally consist of a constant current charging until the
+battery voltage reaching the charge voltage, then constant voltage charging, allowing the
+charge current to taper until it is very small.
+
+• Float Voltage – The voltage at which the battery is maintained after being charge to 100
+percent SOC to maintain that capacity by compensating for self-discharge of the battery.
+
+• (Recommended) Charge Current – The ideal current at which the battery is initially
+charged (to roughly 70 percent SOC) under constant charging scheme before transitioning
+into constant voltage charging.
+
+• (Maximum) Internal Resistance – The resistance within the battery, generally different
+for charging and discharging.
+>>>>>>> Stashed changes
