@@ -213,7 +213,6 @@ And if we have a timeout of over 3seconds, we are checking if the modem is still
 
 This is to setup the parameters of the module that helps take care of the SMS interface that we have planned for our logger. Basically, we first delete any old SMS messages that have been left unhandled on the 4G SIM card, and then tell the module which way is the SMS supposed to be routed via "AT+CNMI".  Once all that is done, we call the network cleanup helper, which basically closes any old MQTT connections that are now essentially dead, via the "AT+QMTCLOSE" command, and forcing the fsm into the Net_Cleanup State. 
 ## Net_Cleanup 
-
 ```C 
 case EC200_Net_Cleanup:
     // Entered via enter_net_cleanup(), which has already sent QMTCLOSE.
@@ -270,5 +269,34 @@ Here, we take care of closing any and every connection that may or may not have 
     break;
 ```
 
-Basically, if the previous command has been acked and okayed, we send over details with whatever is needed for connecting to the network / data. The string that is being sent, has the following data - `AT+QICSGP=<contextID>,<context_type>,"<APN>","<username>","<password>",<authentication>` .  And of course, if this doesn't break or times out, we gotta go back to the [Network registration part of the FSM](#nw_reg) state. Why? It was indeed unnecessary. 
+Basically, if the previous command has been acked and okayed, we send over details with whatever is needed for connecting to the network / data. The string that is being sent, has the following data - `AT+QICSGP=<contextID>,<context_type>,"<APN>","<username>","<password>",<authentication>` .  And of course, if this doesn't break or times out, we gotta go back to the [Network registration part of the FSM](#nw_reg) state. 
+## Init_PDP
+```C
+  case EC200_Init_PDP:
+    if (dev->cmd_ack && dev->cmd_ok) {
+      printf(
+          "\r\n[FSM] APN Configured -> Activating PDP Context (QIACT=1)\r\n");
+      send_at(dev, "AT+QIACT=1\r\n");
+      dev->state_timer = now_ms;
+      dev->fsm_state = EC200_MQTT_Sock;
+    } else if (dev->cmd_ack && !dev->cmd_ok) {
+      // FIX: Instead of infinitely retrying QICSGP, forcefully deactivate the
+      // stuck context.
+      printf("\r\n[FSM ERROR] APN Config Rejected (Context likely stuck "
+             "active). Forcing Deactivation...\r\n");
+      send_at(dev, "AT+QIDEACT=1\r\n");
+      dev->state_timer = now_ms;
 
+      // Route back to DataAPN. When QIDEACT replies 'OK', DataAPN automatically
+      // resends QICSGP.
+      dev->fsm_state = EC200_DataAPN;
+    } else if (now_ms - dev->state_timer > 5000) {
+      printf("\r\n[FSM ERROR] APN Config Timeout. Forcing Deactivation...\r\n");
+      send_at(dev, "AT+QIDEACT=1\r\n");
+      dev->state_timer = now_ms;
+      dev->fsm_state = EC200_DataAPN;
+    }
+    break;
+```
+
+Here, we are registering our modem to the public data protocol, allowing our device to use the common 4G spectrum for general data purposes. We use a lot of module vendor - specific commands from here on out, with the first one being QIACT. This is what activated the PDP context between our module and the Public Data Network (PDN).  Once this is successful, we go out to the MQTT Connection routine, since we have all that we need to set 
