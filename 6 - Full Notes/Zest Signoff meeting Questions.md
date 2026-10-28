@@ -1,9 +1,9 @@
 [[RhyGen]]
 ## Technical
-1.  Vicron MPPTs. Are we getting them, or are we not.
-2. Contactor current ratings on their DO digital relays
-3. Purchasing of LEM HAIS 150-P. and LEM LV25-P : Just in case that we don't have vicron or any other MPPT that can deliver over CAN.
-4. For H2 Cooking feeder board, do they want voltage or current control choice for each channel?
+1. Which MPPTs are we getting for the system, are they able to publish data over CAN, and are they the Vicron MPPTs that we spoke aobut?  
+2. What is the contactor current rating that shall be controlled by the digital outputs on the H2 plant's feeder boards.   
+3. Just in case that we don't have vicron or any other MPPT that can deliver over CAN, we'll have to go ahead with the purchase of LEM HAIS 150-P (current sensors) and LEM LV25-P (voltage sensors) for the solar feeder board too. 
+4. For H2 Cooking feeder board's analog control output which shall be mapped to control the rectifier current set - point , do we want to choose between voltage or current control for each channel? Or for the entire Analog output itself?
 ## Business
 
 
