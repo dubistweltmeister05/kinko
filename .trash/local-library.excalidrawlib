@@ -1,0 +1,138 @@
+{
+  "type": "excalidrawlib",
+  "version": 2,
+  "source": "https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.29.0",
+  "libraryItems": [
+    {
+      "id": "QMcicQ3BhdUtqDCuFUeus",
+      "status": "unpublished",
+      "elements": [
+        {
+          "id": "fmzah4eY",
+          "type": "rectangle",
+          "x": -316.7183401925224,
+          "y": -77.09180341448103,
+          "width": 445.38783482142856,
+          "height": 220,
+          "angle": 0,
+          "strokeColor": "#1e1e1e",
+          "backgroundColor": "transparent",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "strokeStyle": "solid",
+          "roughness": 1,
+          "opacity": 100,
+          "groupIds": [
+            "o8m0rWCZp7m00ZoSoKo10"
+          ],
+          "frameId": null,
+          "index": "a3",
+          "roundness": {
+            "type": 3
+          },
+          "seed": 197389949,
+          "version": 141,
+          "versionNonce": 890329683,
+          "isDeleted": false,
+          "boundElements": [
+            {
+              "type": "text",
+              "id": "c9JfiXEZ"
+            }
+          ],
+          "updated": 1794137407452,
+          "created": 1794137254058,
+          "link": null,
+          "locked": false
+        },
+        {
+          "id": "c9JfiXEZ",
+          "type": "text",
+          "x": -295.6842585972378,
+          "y": -29.591803414481035,
+          "width": 403.3196716308594,
+          "height": 125,
+          "angle": 0,
+          "strokeColor": "#1e1e1e",
+          "backgroundColor": "transparent",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "strokeStyle": "solid",
+          "roughness": 1,
+          "opacity": 100,
+          "groupIds": [
+            "o8m0rWCZp7m00ZoSoKo10"
+          ],
+          "frameId": null,
+          "index": "a3V",
+          "roundness": null,
+          "seed": 1977013405,
+          "version": 129,
+          "versionNonce": 87594995,
+          "isDeleted": false,
+          "boundElements": null,
+          "updated": 1794137407452,
+          "created": 1794137370198,
+          "locked": false,
+          "text": "- Blocking Scripts\n- IP Allow-lists\n- Usage Telemetry Scripts that can be\naccessed on a static IP\n- Something else that I can come up with",
+          "rawText": "- Blocking Scripts\n- IP Allow-lists\n- Usage Telemetry Scripts that can be accessed on a static IP\n- Something else that I can come up with",
+          "fontSize": 20,
+          "baseFontSize": null,
+          "fontFamily": 5,
+          "textAlign": "center",
+          "verticalAlign": "middle",
+          "containerId": "fmzah4eY",
+          "originalText": "- Blocking Scripts\n- IP Allow-lists\n- Usage Telemetry Scripts that can be accessed on a static IP\n- Something else that I can come up with",
+          "autoResize": true,
+          "lineHeight": 1.25,
+          "labelPosition": null,
+          "hasTextLink": false
+        },
+        {
+          "id": "t3Dpt2qX",
+          "type": "text",
+          "x": -226.59592110770086,
+          "y": -138.4795684814453,
+          "width": 261.2245396205355,
+          "height": 35,
+          "angle": 0,
+          "strokeColor": "#1e1e1e",
+          "backgroundColor": "transparent",
+          "fillStyle": "solid",
+          "strokeWidth": 2,
+          "strokeStyle": "solid",
+          "roughness": 1,
+          "opacity": 100,
+          "groupIds": [
+            "o8m0rWCZp7m00ZoSoKo10"
+          ],
+          "frameId": null,
+          "index": "a4",
+          "roundness": null,
+          "seed": 1337253107,
+          "version": 191,
+          "versionNonce": 1961304467,
+          "isDeleted": false,
+          "boundElements": null,
+          "updated": 1794137407452,
+          "created": 1794137264140,
+          "locked": false,
+          "text": "OpenWRT Firmware",
+          "rawText": "OpenWRT Firmware",
+          "fontSize": 28,
+          "baseFontSize": null,
+          "fontFamily": 5,
+          "textAlign": "left",
+          "verticalAlign": "top",
+          "containerId": null,
+          "originalText": "OpenWRT Firmware",
+          "autoResize": false,
+          "lineHeight": 1.25,
+          "labelPosition": null,
+          "hasTextLink": false
+        }
+      ],
+      "created": 1794138037035
+    }
+  ]
+}
